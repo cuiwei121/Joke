@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1D7A396614D7C730568A44C8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 265FD4B11B37B1659CEF762A /* libPods.a */; };
+		242F96621CB3BD150053FDB8 /* JBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F96611CB3BD140053FDB8 /* JBaseVC.m */; };
+		242F96671CB3BF840053FDB8 /* WJAFNetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F96641CB3BF840053FDB8 /* WJAFNetAPIClient.m */; };
+		242F96681CB3BF840053FDB8 /* WJConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F96661CB3BF840053FDB8 /* WJConstants.m */; };
+		242F966C1CB3BFF00053FDB8 /* WJDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F966B1CB3BFF00053FDB8 /* WJDataRequest.m */; };
+		242F96701CB3C02D0053FDB8 /* WJBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F966F1CB3C02D0053FDB8 /* WJBaseModel.m */; };
 		2468C45A1CB34CA2005A10BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2468C4591CB34CA2005A10BF /* main.m */; };
 		2468C45D1CB34CA2005A10BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2468C45C1CB34CA2005A10BF /* AppDelegate.m */; };
 		2468C4601CB34CA2005A10BF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2468C45F1CB34CA2005A10BF /* ViewController.m */; };
@@ -36,6 +41,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		242F965E1CB3BB4E0053FDB8 /* Joke_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Joke_Prefix.pch; sourceTree = "<group>"; };
+		242F96601CB3BD140053FDB8 /* JBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBaseVC.h; sourceTree = "<group>"; };
+		242F96611CB3BD140053FDB8 /* JBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBaseVC.m; sourceTree = "<group>"; };
+		242F96631CB3BF840053FDB8 /* WJAFNetAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJAFNetAPIClient.h; sourceTree = "<group>"; };
+		242F96641CB3BF840053FDB8 /* WJAFNetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJAFNetAPIClient.m; sourceTree = "<group>"; };
+		242F96651CB3BF840053FDB8 /* WJConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJConstants.h; sourceTree = "<group>"; };
+		242F96661CB3BF840053FDB8 /* WJConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJConstants.m; sourceTree = "<group>"; };
+		242F966A1CB3BFF00053FDB8 /* WJDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJDataRequest.h; sourceTree = "<group>"; };
+		242F966B1CB3BFF00053FDB8 /* WJDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJDataRequest.m; sourceTree = "<group>"; };
+		242F966E1CB3C02D0053FDB8 /* WJBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJBaseModel.h; sourceTree = "<group>"; };
+		242F966F1CB3C02D0053FDB8 /* WJBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJBaseModel.m; sourceTree = "<group>"; };
 		2468C4551CB34CA2005A10BF /* Joke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Joke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2468C4591CB34CA2005A10BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2468C45B1CB34CA2005A10BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -83,6 +99,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		242F965F1CB3BCAB0053FDB8 /* JBaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				242F96601CB3BD140053FDB8 /* JBaseVC.h */,
+				242F96611CB3BD140053FDB8 /* JBaseVC.m */,
+			);
+			path = JBaseVC;
+			sourceTree = "<group>";
+		};
+		242F96691CB3BFF00053FDB8 /* WJRequest */ = {
+			isa = PBXGroup;
+			children = (
+				242F966A1CB3BFF00053FDB8 /* WJDataRequest.h */,
+				242F966B1CB3BFF00053FDB8 /* WJDataRequest.m */,
+			);
+			path = WJRequest;
+			sourceTree = "<group>";
+		};
+		242F966D1CB3C02D0053FDB8 /* WJResponse */ = {
+			isa = PBXGroup;
+			children = (
+				242F966E1CB3C02D0053FDB8 /* WJBaseModel.h */,
+				242F966F1CB3C02D0053FDB8 /* WJBaseModel.m */,
+			);
+			path = WJResponse;
+			sourceTree = "<group>";
+		};
 		2468C44C1CB34CA2005A10BF = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +151,9 @@
 		2468C4571CB34CA2005A10BF /* Joke */ = {
 			isa = PBXGroup;
 			children = (
+				242F966D1CB3C02D0053FDB8 /* WJResponse */,
+				242F96691CB3BFF00053FDB8 /* WJRequest */,
+				242F965F1CB3BCAB0053FDB8 /* JBaseVC */,
 				2468C45B1CB34CA2005A10BF /* AppDelegate.h */,
 				2468C45C1CB34CA2005A10BF /* AppDelegate.m */,
 				2468C45E1CB34CA2005A10BF /* ViewController.h */,
@@ -124,7 +170,12 @@
 		2468C4581CB34CA2005A10BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				242F96631CB3BF840053FDB8 /* WJAFNetAPIClient.h */,
+				242F96641CB3BF840053FDB8 /* WJAFNetAPIClient.m */,
+				242F96651CB3BF840053FDB8 /* WJConstants.h */,
+				242F96661CB3BF840053FDB8 /* WJConstants.m */,
 				2468C4591CB34CA2005A10BF /* main.m */,
+				242F965E1CB3BB4E0053FDB8 /* Joke_Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -345,8 +396,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				242F96681CB3BF840053FDB8 /* WJConstants.m in Sources */,
 				2468C4601CB34CA2005A10BF /* ViewController.m in Sources */,
 				2468C45D1CB34CA2005A10BF /* AppDelegate.m in Sources */,
+				242F96671CB3BF840053FDB8 /* WJAFNetAPIClient.m in Sources */,
+				242F96621CB3BD150053FDB8 /* JBaseVC.m in Sources */,
+				242F96701CB3C02D0053FDB8 /* WJBaseModel.m in Sources */,
+				242F966C1CB3BFF00053FDB8 /* WJDataRequest.m in Sources */,
 				2468C45A1CB34CA2005A10BF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,6 +545,7 @@
 			baseConfigurationReference = CC4B2A5D631D7B944E964DC0 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Joke/Joke_Prefix.pch";
 				INFOPLIST_FILE = Joke/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wenjuan.Joke;
@@ -501,6 +558,7 @@
 			baseConfigurationReference = 24C88A1E24300AE40F385EE7 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Joke/Joke_Prefix.pch";
 				INFOPLIST_FILE = Joke/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wenjuan.Joke;
