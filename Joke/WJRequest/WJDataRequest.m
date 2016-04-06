@@ -31,10 +31,15 @@
 //        }
 //    }];
     
-    NSMutableDictionary *param = [@{}mutableCopy];
+    NSMutableDictionary *param = [@{@"sort":@"asc",
+                                    @"page":@"2",
+                                    @"pagesize":@"10",
+                                    @"time":@"1418745237",
+                                    @"key":@"a91393365afb1f6ca19b3fdd7d9409ec"}mutableCopy];
+//    params = param;
     
 
-    return [[WJAFNetAPIClient sharedClient]GET:@"joke/content/list.from" parameters:params compeletion:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+    return [[WJAFNetAPIClient sharedClient]WJGET:@"joke/content/list.from" parameters:param compeletion:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         
     }];
     

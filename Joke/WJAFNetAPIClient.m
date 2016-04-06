@@ -45,9 +45,9 @@
  * @param  parameters       请求参数
  * @param  block            回调函数
  */
-- (NSURLSessionDataTask *)POST:(NSString *)URLString parameters:(id)parameters compeletion:(void(^)(NSURLSessionDataTask *task,id responseObject, NSError *error))block {
+- (NSURLSessionDataTask *)WJPOST:(NSString *)URLString parameters:(id)parameters compeletion:(void(^)(NSURLSessionDataTask *task,id responseObject, NSError *error))block {
     
-    //这个方法已经过期
+////    //这个方法已经过期
 //    return  [self POST:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
 //        LOG(@"URL = %@ ,=== post请求 = %@",URLString,responseObject);
 //        block(task,responseObject,nil);
@@ -56,11 +56,16 @@
 //        block(task,nil,error);
 //    }];
     
-   return  [self POST:URLString parameters:parameters compeletion:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
-        LOG(@"URL = %@ ,=== post请求 = %@, 错误信息error = %@",URLString,responseObject,error);
-       
-        block(task,responseObject,error);
+ 
+    return [self POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+         LOG(@"URL = %@ ,=== post请求 = %@",URLString,responseObject);
+        block(task,responseObject,nil);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        LOG(@"错误信息error =  %@",error);
+        block(task,nil,error);
     }];
+    
 }
 
 
@@ -70,7 +75,7 @@
  * @param  parameters       请求参数
  * @param  block            回调函数
  */
-- (NSURLSessionDataTask *)GET:(NSString *)URLString parameters:(id)parameters compeletion:(void(^)(NSURLSessionDataTask *task,id responseObject, NSError *error))block {
+- (NSURLSessionDataTask *)WJGET:(NSString *)URLString parameters:(id)parameters compeletion:(void(^)(NSURLSessionDataTask *task,id responseObject, NSError *error))block {
     
     //这个方法已经过期
 //    return [self GET:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -82,12 +87,15 @@
 //        block(task,nil,error);
 //    }];
     
-    return [self GET:URLString parameters:parameters compeletion:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
-        LOG(@"URL = %@ ,=== get请求 = %@  , 错误信息error = %@",URLString,responseObject,error);
-        block(task,responseObject,error);
+    return  [self GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        LOG(@"URL = %@ ,=== get请求 = %@",URLString,responseObject);
         
+        block(task,responseObject,nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        LOG(@"错误信息error =  %@",error);
+        block(task,nil,error);
     }];
-    
 }
 
 
