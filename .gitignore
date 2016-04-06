@@ -3,7 +3,7 @@
 *.xccheckout
 #*.xcbkptlist
 #*.xcscheme
-#*.xcworkspacedata
+#*.xcworkspace
 *.xcuserstate
 build/
 .DS_Store
