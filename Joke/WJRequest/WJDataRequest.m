@@ -20,17 +20,6 @@
  */
 + (NSURLSessionDataTask *)getJokeContentList :(NSDictionary *)params compeletion:(void(^)(WJBaseModel*response, NSError *error))block  {
     
-//    //调用封装的post请求
-//    return [[WJAFNetAPIClient sharedClient] POST:@"verifyCode" parameters:params compeletion:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
-//        if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
-//            NSMutableDictionary *resultDict = responseObject;
-//            VerifyCodeResponse *response = [[VerifyCodeResponse alloc] initWithDictionary:resultDict];
-//            block(response, nil);
-//        }else {
-//            block(nil, error);
-//        }
-//    }];
-    
     NSMutableDictionary *param = [@{@"sort":@"asc",
                                     @"page":@"2",
                                     @"pagesize":@"10",

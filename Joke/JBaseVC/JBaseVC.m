@@ -5,7 +5,7 @@
 //  Created by wenjuan on 16/4/5.
 //  Copyright © 2016年 wenjuan. All rights reserved.
 //
-
+@import GoogleMobileAds;
 #import "JBaseVC.h"
 
 @interface JBaseVC ()
@@ -16,7 +16,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.bannerView = [[GADBannerView alloc]init];
+    self.bannerView.frame = CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50);
+    [self.view addSubview:self.bannerView];
+    self.bannerView.adUnitID = @"ca-app-pub-3469552292226288/9081240452";
+    self.bannerView.rootViewController = self;
+    
+    GADRequest *request = [GADRequest request];
+    request.testDevices = @[
+                            @"2077ef9a63d2b398840261c8221a0c9a"  // Eric's iPod Touch
+                            ];
+    [self.bannerView loadRequest:request];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

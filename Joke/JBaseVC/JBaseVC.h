@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class GADBannerView;
 
 @interface JBaseVC : UIViewController
+
+@property (nonatomic, strong) GADBannerView *bannerView;
 
 @end
