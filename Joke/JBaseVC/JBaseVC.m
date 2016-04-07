@@ -18,6 +18,7 @@
     [super viewDidLoad];
     
     self.bannerView = [[GADBannerView alloc]init];
+    self.bannerView.backgroundColor = [UIColor greenColor];
     self.bannerView.frame = CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50);
     [self.view addSubview:self.bannerView];
     self.bannerView.adUnitID = @"ca-app-pub-3469552292226288/9081240452";
@@ -29,7 +30,17 @@
                             ];
     [self.bannerView loadRequest:request];
     
+    UIButton *button = [[UIButton alloc]init];
+  
+    [self.view addSubview:button];
+    [button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(_bannerView.mas_top);
+        make.left.right.equalTo(_bannerView);
+        make.height.equalTo(@80);
+    }];
     
+    button.tag = 1;
+    button.backgroundColor = [UIColor orangeColor];
 }
 
 - (void)didReceiveMemoryWarning {

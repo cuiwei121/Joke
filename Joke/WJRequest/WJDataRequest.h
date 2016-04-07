@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "WJAFNetAPIClient.h"
 #import "WJBaseModel.h"
+#import "JokeContentResponse.h"
 
 @interface WJDataRequest : NSObject
 /**
  *笑话列表
  */
-+ (NSURLSessionDataTask *)getJokeContentList :(NSDictionary *)params compeletion:(void(^)(WJBaseModel*response, NSError *error))block ;
++ (NSURLSessionDataTask *)getJokeContentList :(NSDictionary *)params compeletion:(void(^)(JokeContentResponse*response, NSError *error))block ;
 @end

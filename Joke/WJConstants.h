@@ -38,6 +38,10 @@
 #define MAS MAutoScale
 #define ASX(x)  SCREEN_WIDTH <375 ? x MAS : x
 
+/**
+ *字体设置
+ */
+#define cwFont(x) [UIFont fontWithName:@"Zapfino" size:x]
 
 #endif
 @end

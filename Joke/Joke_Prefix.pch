@@ -13,6 +13,7 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import "WJConstants.h"
 #import "WJDataRequest.h"
+#import "Masonry.h"
 
 
 #endif /* Joke_Prefix_pch */

@@ -18,7 +18,7 @@
 /**
  *笑话列表
  */
-+ (NSURLSessionDataTask *)getJokeContentList :(NSDictionary *)params compeletion:(void(^)(WJBaseModel*response, NSError *error))block  {
++ (NSURLSessionDataTask *)getJokeContentList :(NSDictionary *)params compeletion:(void(^)(JokeContentResponse*response, NSError *error))block  {
     
     NSMutableDictionary *param = [@{@"sort":@"asc",
                                     @"page":@"2",
@@ -29,7 +29,13 @@
     
 
     return [[WJAFNetAPIClient sharedClient]WJGET:@"joke/content/list.from" parameters:param compeletion:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
-        
+        if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
+            NSMutableDictionary *resultDict = responseObject;
+            JokeContentResponse *messageDetail = [[JokeContentResponse alloc] initWithDictionary:resultDict];
+            block(messageDetail, nil);
+        }else {
+            block(nil, error);
+        }
     }];
     
 }
