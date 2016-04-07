@@ -61,11 +61,19 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    ContentTVCell *contentCell = [tableView cellForRowAtIndexPath:indexPath];
+//    if (contentCell) {
+//        NSLog(@"%lf",[contentCell returnCellHeight]);
+//    }else {
+//        LOG(@"123");
+//    }
+    ContentTVCell *cell=(ContentTVCell*)[self tableView:self.jokeTableView cellForRowAtIndexPath:indexPath];
     
-    return 300;
+    return [cell returnCellHeight];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     NSString *identifier = @"cells";
     ContentTVCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
@@ -73,6 +81,8 @@
     }
     JokeContentDataModel *dataM = [self.dataArray objectAtIndex:indexPath.row];
     cell.contentLabel.text = dataM.content;
+    
+    
 //    cell.textLabel.text = @"q213134";
     return cell;
 }

@@ -40,7 +40,7 @@
     
     CGSize size = [self.contentLabel boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 30, 0)];
     
-    CGFloat h = size.height;
+    CGFloat h = size.height + 60;
     return h;
 }
 
