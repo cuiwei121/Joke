@@ -11,4 +11,7 @@
 @interface ContentTVCell : BaseTableViewCell
 @property (nonatomic, strong) UILabel *contentLabel;
 
+
+- (CGFloat)returnCellHeight;
+
 @end

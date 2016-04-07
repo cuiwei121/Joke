@@ -7,6 +7,7 @@
 //
 
 #import "ContentTVCell.h"
+#import "UILabel+StringFrame.h"
 
 @implementation ContentTVCell
 
@@ -33,5 +34,17 @@
     }
     return self;
 }
+
+
+- (CGFloat)returnCellHeight {
+    
+    CGSize size = [self.contentLabel boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 30, 0)];
+    
+    CGFloat h = size.height;
+    return h;
+}
+
+
+
 
 @end

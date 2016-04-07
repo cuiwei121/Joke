@@ -11,6 +11,7 @@
 		241F16FF1CB65C0900EADF63 /* JokeContentResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 241F16FE1CB65C0900EADF63 /* JokeContentResponse.m */; };
 		241F17031CB664A400EADF63 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 241F17021CB664A400EADF63 /* BaseTableViewCell.m */; };
 		241F17091CB6656500EADF63 /* ContentTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 241F17081CB6656500EADF63 /* ContentTVCell.m */; };
+		241F170D1CB66BFA00EADF63 /* UILabel+StringFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 241F170C1CB66BFA00EADF63 /* UILabel+StringFrame.m */; };
 		242F96621CB3BD150053FDB8 /* JBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F96611CB3BD140053FDB8 /* JBaseVC.m */; };
 		242F96671CB3BF840053FDB8 /* WJAFNetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F96641CB3BF840053FDB8 /* WJAFNetAPIClient.m */; };
 		242F96681CB3BF840053FDB8 /* WJConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F96661CB3BF840053FDB8 /* WJConstants.m */; };
@@ -50,6 +51,8 @@
 		241F17021CB664A400EADF63 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		241F17071CB6656500EADF63 /* ContentTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentTVCell.h; sourceTree = "<group>"; };
 		241F17081CB6656500EADF63 /* ContentTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentTVCell.m; sourceTree = "<group>"; };
+		241F170B1CB66BFA00EADF63 /* UILabel+StringFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+StringFrame.h"; sourceTree = "<group>"; };
+		241F170C1CB66BFA00EADF63 /* UILabel+StringFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+StringFrame.m"; sourceTree = "<group>"; };
 		242F965E1CB3BB4E0053FDB8 /* Joke_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Joke_Prefix.pch; sourceTree = "<group>"; };
 		242F96601CB3BD140053FDB8 /* JBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBaseVC.h; sourceTree = "<group>"; };
 		242F96611CB3BD140053FDB8 /* JBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBaseVC.m; sourceTree = "<group>"; };
@@ -119,6 +122,15 @@
 			path = tableViewCell;
 			sourceTree = "<group>";
 		};
+		241F170A1CB66B2F00EADF63 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				241F170B1CB66BFA00EADF63 /* UILabel+StringFrame.h */,
+				241F170C1CB66BFA00EADF63 /* UILabel+StringFrame.m */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		242F965F1CB3BCAB0053FDB8 /* JBaseVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +185,7 @@
 		2468C4571CB34CA2005A10BF /* Joke */ = {
 			isa = PBXGroup;
 			children = (
+				241F170A1CB66B2F00EADF63 /* Utility */,
 				241F17001CB6646500EADF63 /* tableViewCell */,
 				242F966D1CB3C02D0053FDB8 /* WJResponse */,
 				242F96691CB3BFF00053FDB8 /* WJRequest */,
@@ -422,6 +435,7 @@
 				241F17031CB664A400EADF63 /* BaseTableViewCell.m in Sources */,
 				242F96681CB3BF840053FDB8 /* WJConstants.m in Sources */,
 				2468C4601CB34CA2005A10BF /* ViewController.m in Sources */,
+				241F170D1CB66BFA00EADF63 /* UILabel+StringFrame.m in Sources */,
 				241F17091CB6656500EADF63 /* ContentTVCell.m in Sources */,
 				2468C45D1CB34CA2005A10BF /* AppDelegate.m in Sources */,
 				241F16FF1CB65C0900EADF63 /* JokeContentResponse.m in Sources */,
