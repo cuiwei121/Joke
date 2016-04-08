@@ -21,4 +21,9 @@
  *interest 趣图
  */
 + (NSURLSessionDataTask *)getInterestImage:(NSDictionary *)params compeletion:(void(^)(JokeContentResponse*response, NSError *error))block ;
+
+/**
+ *微信精选
+ */
++ (NSURLSessionDataTask *)getWeiXin:(NSDictionary *)params compeletion:(void(^)(WJBaseModel*response, NSError *error))block ;
 @end

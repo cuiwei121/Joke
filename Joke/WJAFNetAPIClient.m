@@ -55,8 +55,8 @@
 //        LOG(@"错误信息error =  %@",error);
 //        block(task,nil,error);
 //    }];
+
     
- 
     return [self POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
          LOG(@"URL = %@ ,=== post请求 = %@",URLString,responseObject);

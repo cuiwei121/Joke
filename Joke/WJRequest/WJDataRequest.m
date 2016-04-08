@@ -25,9 +25,9 @@
                                     @"pagesize":@"10",
                                     @"time":@"1418745237",
                                     @"key":@"a91393365afb1f6ca19b3fdd7d9409ec"}mutableCopy];
-//    params = param;
+    //    params = param;
     
-
+    
     return [[WJAFNetAPIClient sharedClient]WJGET:@"joke/content/list.from" parameters:param compeletion:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
             NSMutableDictionary *resultDict = responseObject;
@@ -65,5 +65,29 @@
     
 }
 
+
+
+/**
+ *微信精选
+ */
++ (NSURLSessionDataTask *)getWeiXin:(NSDictionary *)params compeletion:(void(^)(WJBaseModel*response, NSError *error))block {
+    
+    NSMutableDictionary *param = [@{@"pno":@"1",
+                                    @"ps":@"20",
+                                    @"dtype":@"json",
+                                    @"key":@"d5ed5acf5657955629891a4e597d6227"}mutableCopy];
+    //    params = param;
+    
+    
+    return [[WJAFNetAPIClient sharedClient]WJGET:@"weixin/query" parameters:param compeletion:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+        if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
+            NSMutableDictionary *resultDict = responseObject;
+            JokeContentResponse *messageDetail = [[JokeContentResponse alloc] initWithDictionary:resultDict];
+            block(messageDetail, nil);
+        }else {
+            block(nil, error);
+        }
+    }];
+}
 
 @end

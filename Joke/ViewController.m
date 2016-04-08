@@ -64,11 +64,12 @@
             
         case 2:
             self.dataArray = self.articleArray;
+            [self loadWeiXinData];
             break;
             
         default:
             break;
-            
+          
     }
     
     [self.jokeTableView reloadData];
@@ -195,6 +196,14 @@
         
     }];
 }
+
+
+- (void)loadWeiXinData {
+    [WJDataRequest getWeiXin:nil compeletion:^(WJBaseModel *response, NSError *error) {
+        LOG(@"response = %@，，，error = %@",response,error);
+    }];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
