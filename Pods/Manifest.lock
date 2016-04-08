@@ -17,17 +17,22 @@ PODS:
   - Google-Mobile-Ads-SDK (7.7.0)
   - jastor (0.2.1)
   - Masonry (1.0.0)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
   - Google-Mobile-Ads-SDK (~> 7.0)
   - jastor (~> 0.2.1)
   - Masonry (~> 1.0.0)
+  - SDWebImage (~> 3.7.5)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Google-Mobile-Ads-SDK: d290e523a6e2f223256abcbf8e0c778b55b1f04e
   jastor: fe9ff71f4b683698253d6a0d9a2561987fd9aff3
   Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
 
 COCOAPODS: 0.39.0

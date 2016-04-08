@@ -25,6 +25,8 @@
 		2468C4681CB34CA2005A10BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2468C4661CB34CA2005A10BF /* LaunchScreen.storyboard */; };
 		2468C4731CB34CA2005A10BF /* JokeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2468C4721CB34CA2005A10BF /* JokeTests.m */; };
 		2468C47E1CB34CA2005A10BF /* JokeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2468C47D1CB34CA2005A10BF /* JokeUITests.m */; };
+		248927481CB766CC00638D68 /* InterestImageTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 248927471CB766CC00638D68 /* InterestImageTVCell.m */; };
+		2489274A1CB7926500638D68 /* h_star_se.png in Resources */ = {isa = PBXBuildFile; fileRef = 248927491CB7926500638D68 /* h_star_se.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,9 @@
 		2468C4791CB34CA2005A10BF /* JokeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JokeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2468C47D1CB34CA2005A10BF /* JokeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JokeUITests.m; sourceTree = "<group>"; };
 		2468C47F1CB34CA2005A10BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		248927461CB766CC00638D68 /* InterestImageTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestImageTVCell.h; sourceTree = "<group>"; };
+		248927471CB766CC00638D68 /* InterestImageTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestImageTVCell.m; sourceTree = "<group>"; };
+		248927491CB7926500638D68 /* h_star_se.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h_star_se.png; sourceTree = "<group>"; };
 		24C88A1E24300AE40F385EE7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		265FD4B11B37B1659CEF762A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC4B2A5D631D7B944E964DC0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +123,8 @@
 				241F17021CB664A400EADF63 /* BaseTableViewCell.m */,
 				241F17071CB6656500EADF63 /* ContentTVCell.h */,
 				241F17081CB6656500EADF63 /* ContentTVCell.m */,
+				248927461CB766CC00638D68 /* InterestImageTVCell.h */,
+				248927471CB766CC00638D68 /* InterestImageTVCell.m */,
 			);
 			path = tableViewCell;
 			sourceTree = "<group>";
@@ -185,6 +192,7 @@
 		2468C4571CB34CA2005A10BF /* Joke */ = {
 			isa = PBXGroup;
 			children = (
+				248927491CB7926500638D68 /* h_star_se.png */,
 				241F170A1CB66B2F00EADF63 /* Utility */,
 				241F17001CB6646500EADF63 /* tableViewCell */,
 				242F966D1CB3C02D0053FDB8 /* WJResponse */,
@@ -357,6 +365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2489274A1CB7926500638D68 /* h_star_se.png in Resources */,
 				2468C4681CB34CA2005A10BF /* LaunchScreen.storyboard in Resources */,
 				2468C4651CB34CA2005A10BF /* Assets.xcassets in Resources */,
 				2468C4631CB34CA2005A10BF /* Main.storyboard in Resources */,
@@ -432,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				248927481CB766CC00638D68 /* InterestImageTVCell.m in Sources */,
 				241F17031CB664A400EADF63 /* BaseTableViewCell.m in Sources */,
 				242F96681CB3BF840053FDB8 /* WJConstants.m in Sources */,
 				2468C4601CB34CA2005A10BF /* ViewController.m in Sources */,

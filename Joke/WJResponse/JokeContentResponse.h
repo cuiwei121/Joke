@@ -27,6 +27,9 @@
 @property (nonatomic, strong) NSString *unixtime;
 @property (nonatomic, strong) NSString *updatetime;
 
+//趣图
+@property (nonatomic, strong) NSString *url;
+
 @end
 
 

@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>jastor.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,17 +32,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0883FAE9072EAE73C94F63AE8B79A959</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>49FA5DAFFF876CE85BB9B2EE548DA32A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>555D0708083F74985C3E8B003CF6864C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>89F3297E7ADB94965812C549A59CE1BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

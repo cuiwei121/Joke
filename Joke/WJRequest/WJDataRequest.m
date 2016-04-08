@@ -40,4 +40,30 @@
     
 }
 
+
+/**
+ *interest 趣图
+ */
++ (NSURLSessionDataTask *)getInterestImage:(NSDictionary *)params compeletion:(void(^)(JokeContentResponse*response, NSError *error))block {
+    NSMutableDictionary *param = [@{@"sort":@"asc",
+                                    @"page":@"2",
+                                    @"pagesize":@"10",
+                                    @"time":@"1418745237",
+                                    @"key":@"a91393365afb1f6ca19b3fdd7d9409ec"}mutableCopy];
+    //    params = param;
+    
+    
+    return [[WJAFNetAPIClient sharedClient]WJGET:@"joke/img/list.from" parameters:param compeletion:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+        if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
+            NSMutableDictionary *resultDict = responseObject;
+            JokeContentResponse *messageDetail = [[JokeContentResponse alloc] initWithDictionary:resultDict];
+            block(messageDetail, nil);
+        }else {
+            block(nil, error);
+        }
+    }];
+    
+}
+
+
 @end

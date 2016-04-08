@@ -16,4 +16,9 @@
  *笑话列表
  */
 + (NSURLSessionDataTask *)getJokeContentList :(NSDictionary *)params compeletion:(void(^)(JokeContentResponse*response, NSError *error))block ;
+
+/**
+ *interest 趣图
+ */
++ (NSURLSessionDataTask *)getInterestImage:(NSDictionary *)params compeletion:(void(^)(JokeContentResponse*response, NSError *error))block ;
 @end

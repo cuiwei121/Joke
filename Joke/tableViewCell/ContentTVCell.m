@@ -7,7 +7,6 @@
 //
 
 #import "ContentTVCell.h"
-#import "UILabel+StringFrame.h"
 
 @implementation ContentTVCell
 

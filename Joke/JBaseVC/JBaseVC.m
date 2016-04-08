@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+       self.view.backgroundColor = [UIColor whiteColor];
+    
+    
     
     self.bannerView = [[GADBannerView alloc]init];
     self.bannerView.backgroundColor = [UIColor greenColor];

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UILabel+StringFrame.h"
 
 @interface BaseTableViewCell : UITableViewCell
 
+- (CGFloat)returnCellHeight;
 @end
