@@ -145,7 +145,7 @@
         cell.contentLabel.text = dataM.content;
         
         NSURL *mUrl = [NSURL URLWithString:dataM.url];
-        [cell.imageView sd_setImageWithURL:mUrl placeholderImage:[UIImage imageNamed:@"h_star_se"]];
+        [cell.interestImageV sd_setImageWithURL:mUrl placeholderImage:[UIImage imageNamed:@"h_star_se"]];
     
          //setImageWithURL:dataM.url];
         //    cell.textLabel.text = @"q213134";

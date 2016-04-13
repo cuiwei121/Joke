@@ -24,12 +24,13 @@
     if (self) {
         
         _interestImageV = [[UIImageView alloc]init];
+        _interestImageV.contentMode = UIViewContentModeScaleToFill;
         [self.contentView addSubview:_interestImageV];
-        CGFloat imageH = SCREEN_WIDTH - 30;
+        CGFloat imageH1 = SCREEN_WIDTH/2;
         [_interestImageV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.contentView).offset(5);
             make.centerX.equalTo(self.contentView);
-            make.height.width.equalTo(@(imageH));
+            make.height.width.equalTo(@(imageH1));
         }];
         
         _contentLabel = [[UILabel alloc]init];
@@ -37,7 +38,7 @@
         _contentLabel.font = cwFont(15);
         _contentLabel.numberOfLines = 0;
         [_contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self.contentView).with.insets(UIEdgeInsetsMake(5 + imageH, 15, 45, 15));
+            make.edges.equalTo(self.contentView).with.insets(UIEdgeInsetsMake(5 + imageH1, 15, 45, 15));
         }];
         
         
@@ -50,7 +51,7 @@
     
     CGSize size = [self.contentLabel boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 30, 0)];
     
-    CGFloat h = size.height + 60 + SCREEN_WIDTH - 30;
+    CGFloat h = size.height + 60 + SCREEN_WIDTH/2;
     return h;
 }
 
