@@ -115,7 +115,7 @@
          
          ContentTVCell *cell=(ContentTVCell*)[self tableView:self.jokeTableView cellForRowAtIndexPath:indexPath];
          return [cell returnCellHeight];
-     
+        
      }
 
 }
@@ -157,8 +157,8 @@
         if (!cell) {
             cell = [[ContentTVCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
-        JokeContentDataModel *dataM = [self.dataArray objectAtIndex:indexPath.row];
-        cell.contentLabel.text = dataM.content;
+        WeiXinListModel *dataM = [self.dataArray objectAtIndex:indexPath.row];
+        cell.contentLabel.text = dataM.title;
         
         
         //    cell.textLabel.text = @"q213134";
@@ -199,7 +199,11 @@
 
 
 - (void)loadWeiXinData {
-    [WJDataRequest getWeiXin:nil compeletion:^(WJBaseModel *response, NSError *error) {
+    [WJDataRequest getWeiXin:nil compeletion:^(WeiXinResponse *response, NSError *error) {
+        WeiXinResultModel *resultM = response.result;
+        self.articleArray = resultM.list;
+        self.dataArray = self.articleArray;
+        [self.jokeTableView reloadData];
         LOG(@"response = %@，，，error = %@",response,error);
     }];
 }

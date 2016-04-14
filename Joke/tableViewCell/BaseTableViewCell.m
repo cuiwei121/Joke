@@ -26,17 +26,21 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.contentView.backgroundColor = [UIColor whiteColor];
         
-        UIView *view = [[UIView alloc]init];
-        [self.contentView addSubview:view];
-        view.backgroundColor = [UIColor lightGrayColor];
-        view.layer.cornerRadius = 5.0f;
+        _bgView= [[UIView alloc]init];
+        [self.contentView addSubview:_bgView];
+        _bgView.backgroundColor = cwGreyColor;
+        _bgView.layer.cornerRadius = 5.0f;
         
-        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        [_bgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.contentView).with.insets(UIEdgeInsetsMake(5, 10, 5, 10));
         }];
         
     }
     return self;
+}
+
+- (CGFloat)returnCellHeight {
+    return 44;
 }
 
 @end

@@ -8,6 +8,17 @@
 
 #import "WeiXinResponse.h"
 
+@implementation WeiXinListModel
+
+@end
+
+@implementation WeiXinResultModel
++(Class)list_class {
+    return [WeiXinListModel class];
+}
+@end
+
+
 @implementation WeiXinResponse
 
 @end

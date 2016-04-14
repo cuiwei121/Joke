@@ -12,6 +12,7 @@
 
 @property (nonatomic, assign) BOOL hasNetwork;
 + (instancetype)sharedClient;
++ (instancetype)initClient:(NSString *)baseUrl;
 
 /**
  *  post请求

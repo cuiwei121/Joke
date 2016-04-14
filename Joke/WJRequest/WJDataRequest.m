@@ -70,19 +70,19 @@
 /**
  *微信精选
  */
-+ (NSURLSessionDataTask *)getWeiXin:(NSDictionary *)params compeletion:(void(^)(WJBaseModel*response, NSError *error))block {
++ (NSURLSessionDataTask *)getWeiXin:(NSDictionary *)params compeletion:(void(^)(WeiXinResponse*response, NSError *error))block {
     
     NSMutableDictionary *param = [@{@"pno":@"1",
                                     @"ps":@"20",
                                     @"dtype":@"json",
                                     @"key":@"d5ed5acf5657955629891a4e597d6227"}mutableCopy];
-    //    params = param;
+ 
     
     
-    return [[WJAFNetAPIClient sharedClient]WJGET:@"weixin/query" parameters:param compeletion:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+    return [[WJAFNetAPIClient initClient:@"http://v.juhe.cn/"]WJGET:@"weixin/query" parameters:param compeletion:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
             NSMutableDictionary *resultDict = responseObject;
-            JokeContentResponse *messageDetail = [[JokeContentResponse alloc] initWithDictionary:resultDict];
+            WeiXinResponse *messageDetail = [[WeiXinResponse alloc] initWithDictionary:resultDict];
             block(messageDetail, nil);
         }else {
             block(nil, error);

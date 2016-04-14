@@ -39,6 +39,19 @@
     return _sharedClient;
 }
 
++ (instancetype)initClient:(NSString *)baseUrl {
+    WJAFNetAPIClient *_sharedClient = [[WJAFNetAPIClient alloc] initWithBaseURL:[NSURL URLWithString:baseUrl]];
+    _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+    // 设置10秒超时 改为15秒
+    _sharedClient.requestSerializer.timeoutInterval = 15;
+    _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+//    [_sharedClient.reachabilityManager startMonitoring];
+    return _sharedClient;
+}
+
+
+
+
 /**
  *  post请求
  * @param  URLString        url
@@ -46,7 +59,7 @@
  * @param  block            回调函数
  */
 - (NSURLSessionDataTask *)WJPOST:(NSString *)URLString parameters:(id)parameters compeletion:(void(^)(NSURLSessionDataTask *task,id responseObject, NSError *error))block {
-    
+     
 ////    //这个方法已经过期
 //    return  [self POST:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
 //        LOG(@"URL = %@ ,=== post请求 = %@",URLString,responseObject);

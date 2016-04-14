@@ -10,6 +10,7 @@
 #import "UILabel+StringFrame.h"
 
 @interface BaseTableViewCell : UITableViewCell
+@property (nonatomic, strong) UIView *bgView;
 
 - (CGFloat)returnCellHeight;
 @end

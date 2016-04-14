@@ -10,6 +10,7 @@
 #import "WJAFNetAPIClient.h"
 #import "WJBaseModel.h"
 #import "JokeContentResponse.h"
+#import "WeiXinResponse.h"
 
 @interface WJDataRequest : NSObject
 /**
@@ -25,5 +26,5 @@
 /**
  *微信精选
  */
-+ (NSURLSessionDataTask *)getWeiXin:(NSDictionary *)params compeletion:(void(^)(WJBaseModel*response, NSError *error))block ;
++ (NSURLSessionDataTask *)getWeiXin:(NSDictionary *)params compeletion:(void(^)(WeiXinResponse*response, NSError *error))block ;
 @end

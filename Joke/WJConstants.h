@@ -43,5 +43,10 @@
  */
 #define cwFont(x) [UIFont fontWithName:@"Zapfino" size:x]
 
+/**
+ *  灰色字体 和 灰色线的颜色
+ */
+#define cwGreyColor  [UIColor colorWithRed:(195 / 255.0f) green:(195 / 255.0f) blue:(195/ 255.0f) alpha:1]
+
 #endif
 @end

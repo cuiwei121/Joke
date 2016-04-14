@@ -22,6 +22,7 @@
 -  (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.bgView.backgroundColor = [UIColor whiteColor];
         
         _interestImageV = [[UIImageView alloc]init];
         _interestImageV.contentMode = UIViewContentModeScaleToFill;
