@@ -43,10 +43,18 @@
         }];
         
         
+        _selectButton = [[UIButton alloc]init];
+        //        [_selectButton addTarget:self action:@selector(selectButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.contentView addSubview:_selectButton];
+        [_selectButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.left.right.bottom.equalTo(_interestImageV);
+        }];
+        
     }
     return self;
 }
 
+ 
 
 - (CGFloat)returnCellHeight {
     
@@ -55,6 +63,8 @@
     CGFloat h = size.height + 60 + SCREEN_WIDTH/2;
     return h;
 }
+
+
 
 
 @end

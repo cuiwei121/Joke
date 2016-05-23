@@ -24,14 +24,14 @@
     self.bannerView.backgroundColor = [UIColor greenColor];
     self.bannerView.frame = CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50);
     [self.view addSubview:self.bannerView];
-    self.bannerView.adUnitID = @"ca-app-pub-3469552292226288/9081240452";
-    self.bannerView.rootViewController = self;
-    
-    GADRequest *request = [GADRequest request];
-    request.testDevices = @[
-                            @"2077ef9a63d2b398840261c8221a0c9a"  // Eric's iPod Touch
-                            ];
-    [self.bannerView loadRequest:request];
+//    self.bannerView.adUnitID = @"ca-app-pub-3469552292226288/9081240452";
+//    self.bannerView.rootViewController = self;
+//    
+//    GADRequest *request = [GADRequest request];
+//    request.testDevices = @[
+//                            @"2077ef9a63d2b398840261c8221a0c9a"  // Eric's iPod Touch
+//                            ];
+//    [self.bannerView loadRequest:request];
     
     UIButton *button = [[UIButton alloc]init];
   

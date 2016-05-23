@@ -40,6 +40,8 @@
 }
 
 + (instancetype)initClient:(NSString *)baseUrl {
+    
+    
     WJAFNetAPIClient *_sharedClient = [[WJAFNetAPIClient alloc] initWithBaseURL:[NSURL URLWithString:baseUrl]];
     _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
     // 设置10秒超时 改为15秒

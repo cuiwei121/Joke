@@ -146,6 +146,7 @@
         
         NSURL *mUrl = [NSURL URLWithString:dataM.url];
         [cell.interestImageV sd_setImageWithURL:mUrl placeholderImage:[UIImage imageNamed:@"h_star_se"]];
+        [cell.selectButton addTarget:self action:@selector(selectButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     
          //setImageWithURL:dataM.url];
         //    cell.textLabel.text = @"q213134";
@@ -208,6 +209,12 @@
     }];
 }
 
+
+
+//放大图片
+- (void)selectButtonClick:(UIButton *)sender {
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
