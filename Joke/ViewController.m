@@ -10,6 +10,7 @@
 #import "ContentTVCell.h"
 #import "InterestImageTVCell.h"
 #import "UIImage+GIF.h"
+#import "WXArticleVC.h"
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *jokeTableView;
@@ -140,23 +141,7 @@
         return cell;
 
     }else  if(_segment.selectedSegmentIndex == 2) {
-        NSString *identifier = @"interestImageCell";
-        InterestImageTVCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-        if (!cell) {
-            cell = [[InterestImageTVCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        }
-        JokeContentDataModel *dataM = [self.dataArray objectAtIndex:indexPath.row];
-        cell.contentLabel.text = dataM.content;
         
-        NSURL *mUrl = [NSURL URLWithString:dataM.url];
-        [cell.interestImageV sd_setImageWithURL:mUrl placeholderImage:[UIImage imageNamed:@"h_star_se"]];
-        [cell.selectButton addTarget:self action:@selector(selectButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    
-         //setImageWithURL:dataM.url];
-        //    cell.textLabel.text = @"q213134";
-        return cell;
-
-    }else {
         NSString *identifier = @"cells";
         ContentTVCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         if (!cell) {
@@ -168,10 +153,39 @@
         
         //    cell.textLabel.text = @"q213134";
         return cell;
+        
+
+    }else {
+        NSString *identifier = @"interestImageCell";
+        InterestImageTVCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (!cell) {
+            cell = [[InterestImageTVCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        JokeContentDataModel *dataM = [self.dataArray objectAtIndex:indexPath.row];
+        cell.contentLabel.text = dataM.content;
+        
+        NSURL *mUrl = [NSURL URLWithString:dataM.url];
+        [cell.interestImageV sd_setImageWithURL:mUrl placeholderImage:[UIImage imageNamed:@"h_star_se"]];
+        [cell.selectButton addTarget:self action:@selector(selectButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        //setImageWithURL:dataM.url];
+        //    cell.textLabel.text = @"q213134";
+        return cell;
 
     }
  }
 
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    WeiXinListModel *dataM = [self.dataArray objectAtIndex:indexPath.row];
+  
+
+    WXArticleVC * wxVC = [[WXArticleVC alloc]init];
+    wxVC.urlArticle = dataM.url;
+    
+    [self.navigationController pushViewController:wxVC animated:YES];
+}
 
 
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D7A396614D7C730568A44C8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 265FD4B11B37B1659CEF762A /* libPods.a */; };
+		241638151CF45DF1007524EE /* WXArticleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 241638141CF45DF1007524EE /* WXArticleVC.m */; };
 		241F16FF1CB65C0900EADF63 /* JokeContentResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 241F16FE1CB65C0900EADF63 /* JokeContentResponse.m */; };
 		241F17031CB664A400EADF63 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 241F17021CB664A400EADF63 /* BaseTableViewCell.m */; };
 		241F17091CB6656500EADF63 /* ContentTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 241F17081CB6656500EADF63 /* ContentTVCell.m */; };
@@ -48,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		241638131CF45DF1007524EE /* WXArticleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXArticleVC.h; sourceTree = "<group>"; };
+		241638141CF45DF1007524EE /* WXArticleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXArticleVC.m; sourceTree = "<group>"; };
 		241F16FD1CB65C0900EADF63 /* JokeContentResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JokeContentResponse.h; sourceTree = "<group>"; };
 		241F16FE1CB65C0900EADF63 /* JokeContentResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JokeContentResponse.m; sourceTree = "<group>"; };
 		241F17011CB664A400EADF63 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
@@ -207,6 +210,8 @@
 				2468C45C1CB34CA2005A10BF /* AppDelegate.m */,
 				2468C45E1CB34CA2005A10BF /* ViewController.h */,
 				2468C45F1CB34CA2005A10BF /* ViewController.m */,
+				241638131CF45DF1007524EE /* WXArticleVC.h */,
+				241638141CF45DF1007524EE /* WXArticleVC.m */,
 				2468C4611CB34CA2005A10BF /* Main.storyboard */,
 				2468C4641CB34CA2005A10BF /* Assets.xcassets */,
 				2468C4661CB34CA2005A10BF /* LaunchScreen.storyboard */,
@@ -448,6 +453,7 @@
 			files = (
 				248927481CB766CC00638D68 /* InterestImageTVCell.m in Sources */,
 				241F17031CB664A400EADF63 /* BaseTableViewCell.m in Sources */,
+				241638151CF45DF1007524EE /* WXArticleVC.m in Sources */,
 				242F96681CB3BF840053FDB8 /* WJConstants.m in Sources */,
 				2468C4601CB34CA2005A10BF /* ViewController.m in Sources */,
 				241F170D1CB66BFA00EADF63 /* UILabel+StringFrame.m in Sources */,
