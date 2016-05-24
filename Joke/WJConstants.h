@@ -48,5 +48,10 @@
  */
 #define cwGreyColor  [UIColor colorWithRed:(195 / 255.0f) green:(195 / 255.0f) blue:(195/ 255.0f) alpha:1]
 
+/**
+ * 收藏的数组
+ */
+#define COLLECT_ARRAY_KEY @"JOKE_CONTENT_ARRAY_COLLECT"
+
 #endif
 @end

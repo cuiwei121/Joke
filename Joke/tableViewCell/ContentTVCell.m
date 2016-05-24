@@ -30,8 +30,42 @@
         }];
         
         
+        //uibutton分享
+        UIButton * shareButton = [[UIButton alloc]init];
+        [shareButton addTarget:self action:@selector(shareImage:) forControlEvents:UIControlEventTouchUpInside];
+        [shareButton setTitle:@"分享" forState:UIControlStateNormal];
+        [self.contentView addSubview:shareButton];
+
+        [shareButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self.contentView).offset(-5);
+            make.right.equalTo(self.contentView).offset(-80);
+            make.width.height.equalTo(@(50));
+        }];
+        //收藏
+        UIButton *collectButton = [[UIButton alloc]init];
+        [collectButton addTarget:self action:@selector(collectContent:) forControlEvents:UIControlEventTouchUpInside];
+        [collectButton setTitle:@"收藏" forState:UIControlStateNormal];
+        [self.contentView addSubview:collectButton];
+        [collectButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self.contentView).offset(-5);
+            make.right.equalTo(self.contentView).offset(-30);
+            make.width.height.equalTo(@(50));
+        }];
     }
     return self;
+}
+
+- (void)collectContent:(UIButton *)sender {
+   NSMutableArray * collectA = [[NSUserDefaults standardUserDefaults] objectForKey:COLLECT_ARRAY_KEY];
+    if (!collectA) {
+        collectA = [NSMutableArray array];
+    }
+    [collectA addObject:_contentLabel.text];
+}
+
+- (void)shareImage:(UIButton *)sender {
+    LOG(@"分享图片到好友");
+    [self getShareImage];
 }
 
 
@@ -44,6 +78,47 @@
 }
 
 
+
+
+//分享的图片的宽高
+- (UIImage *)getShareImage {
+    UIView * viewBG =[[UIView alloc]init];
+    viewBG.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    
+    //中间的图片
+    UIImageView * starImageV = [[UIImageView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT/2 - 30, 60, 60)];
+    starImageV.image = [UIImage imageNamed:@"h_star_se"];
+    [viewBG addSubview:starImageV];
+    
+    //文本的长度
+    CGSize size = [self.contentLabel boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 30, 0)];
+    if (size.height > SCREEN_HEIGHT) {
+        viewBG.frame = CGRectMake(0, 0, SCREEN_WIDTH, size.height);
+    }
+    
+    UILabel * shareLabel = [[UILabel alloc]init];
+    shareLabel.frame = CGRectMake(15, 5, SCREEN_WIDTH - 30, size.height);
+    shareLabel.text =[NSString stringWithFormat:@"%@",_contentLabel.text];
+    shareLabel.font = cwFont(15);
+    shareLabel.numberOfLines = 0;
+    [viewBG addSubview:shareLabel];
+    
+    
+    viewBG.backgroundColor = [UIColor lightGrayColor];
+    shareLabel.backgroundColor = [UIColor clearColor];
+    
+    
+    //截图 viewBG截取的图片的大小
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(CGRectGetWidth(viewBG.frame), CGRectGetHeight(viewBG.frame)), NO, 2.0);
+    [viewBG.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    
+    //将图片保存到相册中
+    //UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    return image;
+}
 
 
 @end

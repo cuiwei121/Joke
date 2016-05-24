@@ -21,6 +21,9 @@
 @property (nonatomic, strong) NSArray *interestImageArray;
 @property (nonatomic, strong) NSArray *articleArray;
 
+//放大的图片的背景图
+@property (nonatomic, strong) UIView *bigImageView;
+
 @end
 
 @implementation ViewController
@@ -36,7 +39,7 @@
     [self loadResultData];
     
     
-    NSArray *arr = @[@"笑话",@"趣图",@"精文"];
+    NSArray *arr = @[@"笑话",@"精文"];
     _segment = [[UISegmentedControl alloc]initWithItems:arr];
     //        [segment setApportionsSegmentWidthsByContent:YES];
     //在没有设置[segment setApportionsSegmentWidthsByContent:YES]时，每个的宽度按segment的宽度平分
@@ -58,15 +61,16 @@
             self.dataArray = self.contentArray;
             break;
         case 1:
-            self.dataArray = self.interestImageArray;
-            [self loadImageData];
-            break;
-            
-        case 2:
             self.dataArray = self.articleArray;
             [self loadWeiXinData];
             break;
             
+            
+        case 2:
+            
+            self.dataArray = self.interestImageArray;
+            [self loadImageData];
+            break;
         default:
             break;
           
@@ -107,7 +111,7 @@
          
          ContentTVCell *cell=(ContentTVCell*)[self tableView:self.jokeTableView cellForRowAtIndexPath:indexPath];
          return [cell returnCellHeight];
-     }else  if(_segment.selectedSegmentIndex == 1) {
+     }else  if(_segment.selectedSegmentIndex == 2) {
          
          InterestImageTVCell *cell=(InterestImageTVCell*)[self tableView:self.jokeTableView cellForRowAtIndexPath:indexPath];
          return [cell returnCellHeight];
@@ -135,7 +139,7 @@
         //    cell.textLabel.text = @"q213134";
         return cell;
 
-    }else  if(_segment.selectedSegmentIndex == 1) {
+    }else  if(_segment.selectedSegmentIndex == 2) {
         NSString *identifier = @"interestImageCell";
         InterestImageTVCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         if (!cell) {
@@ -213,12 +217,18 @@
 
 //放大图片
 - (void)selectButtonClick:(UIButton *)sender {
-
+    LOG(@"放大图片");
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)showBigImage {
+
+}
+
+
 
 @end

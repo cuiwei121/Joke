@@ -25,9 +25,9 @@
         self.bgView.backgroundColor = [UIColor whiteColor];
         
         _interestImageV = [[UIImageView alloc]init];
-        _interestImageV.contentMode = UIViewContentModeScaleToFill;
+//        _interestImageV.contentMode = UIViewContentModeScaleToFill;
         [self.contentView addSubview:_interestImageV];
-        CGFloat imageH1 = SCREEN_WIDTH/2;
+        CGFloat imageH1 = SCREEN_WIDTH/3;
         [_interestImageV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.contentView).offset(5);
             make.centerX.equalTo(self.contentView);
@@ -54,13 +54,15 @@
     return self;
 }
 
- 
+
 
 - (CGFloat)returnCellHeight {
     
+    
     CGSize size = [self.contentLabel boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 30, 0)];
     
-    CGFloat h = size.height + 60 + SCREEN_WIDTH/2;
+    CGFloat h = size.height + 60 + SCREEN_WIDTH/3;
+    
     return h;
 }
 

@@ -21,7 +21,7 @@
     
     
     self.bannerView = [[GADBannerView alloc]init];
-    self.bannerView.backgroundColor = [UIColor greenColor];
+//    self.bannerView.backgroundColor = [UIColor greenColor];
     self.bannerView.frame = CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50);
     [self.view addSubview:self.bannerView];
 //    self.bannerView.adUnitID = @"ca-app-pub-3469552292226288/9081240452";
