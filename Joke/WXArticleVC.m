@@ -17,13 +17,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"文章";
+    
     // Do any additional setup after loading the view.
     
 //    NSString *dest = [NSString stringWithFormat:@"messageDetailPage?msgId=%@",self.messageInfo.messageId];
 //    NSString *urlStr = [URL_PREFIX stringByAppendingString:dest];
 //    self.urlArticle = urlStr;
     
-    self.contentWebView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    self.contentWebView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     [self.view addSubview:self.contentWebView];
     
     NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlArticle]];

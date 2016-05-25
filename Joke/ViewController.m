@@ -1,3 +1,4 @@
+
 //
 //  ViewController.m
 //  Joke
@@ -11,10 +12,12 @@
 #import "InterestImageTVCell.h"
 #import "UIImage+GIF.h"
 #import "WXArticleVC.h"
+#import "WXArticleCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *jokeTableView;
-@property (nonatomic, strong) UISegmentedControl *segment;
+ 
 
 @property (nonatomic, strong) NSArray *dataArray;
 
@@ -32,24 +35,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"笑话";
+    [self createTitleView];
     self.interestImageArray = [NSArray array];
     self.articleArray = [NSArray array];
     self.contentArray = [NSArray array];
     
-    self.jokeTableView.backgroundColor = [UIColor orangeColor];
+    self.jokeTableView.backgroundColor = [UIColor whiteColor];
     [self loadResultData];
     
-    
-    NSArray *arr = @[@"笑话",@"精文"];
-    _segment = [[UISegmentedControl alloc]initWithItems:arr];
-    //        [segment setApportionsSegmentWidthsByContent:YES];
-    //在没有设置[segment setApportionsSegmentWidthsByContent:YES]时，每个的宽度按segment的宽度平分
-    _segment.frame = CGRectMake(0,64, SCREEN_WIDTH, 40);
-    _segment.selectedSegmentIndex = 0;
-    [_segment setTintColor:[UIColor greenColor]];
-    _segment.layer.cornerRadius = 40;
-    [_segment addTarget:self action:@selector(change:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:_segment];
     
 }
 
@@ -90,7 +83,7 @@
         _jokeTableView.dataSource = self;
         _jokeTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [_jokeTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(104, 0, 50, 0));
+            make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
         }];
     }
     return _jokeTableView;
@@ -108,17 +101,16 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-     if(_segment.selectedSegmentIndex == 0) {
+     if(self.segment.selectedSegmentIndex == 0) {
          
          ContentTVCell *cell=(ContentTVCell*)[self tableView:self.jokeTableView cellForRowAtIndexPath:indexPath];
          return [cell returnCellHeight];
-     }else  if(_segment.selectedSegmentIndex == 2) {
-         
-         InterestImageTVCell *cell=(InterestImageTVCell*)[self tableView:self.jokeTableView cellForRowAtIndexPath:indexPath];
+     }else  if(self.segment.selectedSegmentIndex == 1) {
+         WXArticleCell *cell=(WXArticleCell*)[self tableView:self.jokeTableView cellForRowAtIndexPath:indexPath];
          return [cell returnCellHeight];
+        
      }else {
-         
-         ContentTVCell *cell=(ContentTVCell*)[self tableView:self.jokeTableView cellForRowAtIndexPath:indexPath];
+         InterestImageTVCell *cell=(InterestImageTVCell*)[self tableView:self.jokeTableView cellForRowAtIndexPath:indexPath];
          return [cell returnCellHeight];
         
      }
@@ -127,7 +119,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if(_segment.selectedSegmentIndex == 0) {
+    if(self.segment.selectedSegmentIndex == 0) {
         NSString *identifier = @"contentCell";
         ContentTVCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         if (!cell) {
@@ -140,18 +132,30 @@
         //    cell.textLabel.text = @"q213134";
         return cell;
 
-    }else  if(_segment.selectedSegmentIndex == 2) {
+    }else  if(self.segment.selectedSegmentIndex == 1) {
         
         NSString *identifier = @"cells";
-        ContentTVCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        WXArticleCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         if (!cell) {
-            cell = [[ContentTVCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            cell = [[WXArticleCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
+        
+        
         WeiXinListModel *dataM = [self.dataArray objectAtIndex:indexPath.row];
-        cell.contentLabel.text = dataM.title;
+        cell.wxContentLabel.text = dataM.title;
+        NSURL *mUrl = [NSURL URLWithString:dataM.firstImg];
         
         
-        //    cell.textLabel.text = @"q213134";
+        //使用的是afnetworking中的图片下载
+        __block WXArticleCell *weakCell = cell;
+        [cell.wxImageView setImageWithURLRequest:[NSURLRequest requestWithURL:mUrl] placeholderImage:[UIImage imageNamed:@"h_star_se"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+            
+            weakCell.wxImageView.image =  [self compressImageWith:image width:100 height:80];
+            
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+            
+        }];
+        
         return cell;
         
 
@@ -166,6 +170,7 @@
         
         NSURL *mUrl = [NSURL URLWithString:dataM.url];
         [cell.interestImageV sd_setImageWithURL:mUrl placeholderImage:[UIImage imageNamed:@"h_star_se"]];
+        
         [cell.selectButton addTarget:self action:@selector(selectButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         
         //setImageWithURL:dataM.url];
@@ -178,13 +183,14 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    WeiXinListModel *dataM = [self.dataArray objectAtIndex:indexPath.row];
-  
-
-    WXArticleVC * wxVC = [[WXArticleVC alloc]init];
-    wxVC.urlArticle = dataM.url;
-    
-    [self.navigationController pushViewController:wxVC animated:YES];
+    if(self.segment.selectedSegmentIndex == 1) {
+        WeiXinListModel *dataM = [self.dataArray objectAtIndex:indexPath.row];
+        
+        WXArticleVC * wxVC = [[WXArticleVC alloc]init];
+        wxVC.urlArticle = dataM.url;
+        
+        [self.navigationController pushViewController:wxVC animated:YES];
+    }
 }
 
 
@@ -244,5 +250,33 @@
 }
 
 
+-(UIImage *)compressImageWith:(UIImage *)image width:(float)width height:(float)height
+{
+    float imageWidth = image.size.width;
+    float imageHeight = image.size.height;
+    
+    float widthScale = imageWidth /width;
+    float heightScale = imageHeight /height;
+    
+    // 创建一个bitmap的context
+    // 并把它设置成为当前正在使用的context
+    //    UIGraphicsBeginImageContext(CGSizeMake(width, height));
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, height), NO, 2.0);
+    if (widthScale > heightScale) {
+        [image drawInRect:CGRectMake(0, 0, imageWidth /heightScale , height)];
+    }
+    else {
+        [image drawInRect:CGRectMake(0, 0, width , imageHeight /widthScale)];
+    }
+    
+    // 从当前context中创建一个改变大小后的图片
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    //    [newImage retain];
+    // 使当前的context出堆栈
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+    
+}
 
 @end

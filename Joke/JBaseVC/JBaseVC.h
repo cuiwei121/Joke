@@ -13,4 +13,15 @@
 
 @property (nonatomic, strong) GADBannerView *bannerView;
 
+@property (nonatomic, strong) UISegmentedControl *segment;
+
+/**
+ * 创建titleView
+ */
+- (void)createTitleView;
+
+/**
+ * 按钮的点击事件
+ */
+-(void)change:(UISegmentedControl *)Seg;
 @end
