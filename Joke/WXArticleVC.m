@@ -8,7 +8,7 @@
 
 #import "WXArticleVC.h"
 
-@interface WXArticleVC ()
+@interface WXArticleVC ()<UIWebViewDelegate>
 @property (nonatomic, strong) UIWebView *contentWebView;
 
 @end
@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"文章";
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     // Do any additional setup after loading the view.
     
@@ -27,10 +28,29 @@
     
     self.contentWebView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     [self.view addSubview:self.contentWebView];
+    self.contentWebView.delegate = self;
     
     NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlArticle]];
     [self.contentWebView loadRequest:request];
 }
+
+- (void) webViewDidStartLoad:(UIWebView *)webView
+{
+    //创建UIActivityIndicatorView背底半透明View
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+}
+
+- (void) webViewDidFinishLoad:(UIWebView *)webView
+{
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+}
+- (void) webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+  [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

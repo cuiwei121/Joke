@@ -15,6 +15,7 @@
 #import "WJDataRequest.h"
 #import "Masonry.h"
 #import "UIImageView+WebCache.h"
+#import "MBProgressHUD.h"
 
 
 #endif /* Joke_Prefix_pch */

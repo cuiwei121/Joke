@@ -96,6 +96,8 @@
     return _dataArray;
 }
 
+
+#pragma mark - tableview代理方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.dataArray count];
 }
@@ -171,8 +173,6 @@
         NSURL *mUrl = [NSURL URLWithString:dataM.url];
         [cell.interestImageV sd_setImageWithURL:mUrl placeholderImage:[UIImage imageNamed:@"h_star_se"]];
         
-        [cell.selectButton addTarget:self action:@selector(selectButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-        
         //setImageWithURL:dataM.url];
         //    cell.textLabel.text = @"q213134";
         return cell;
@@ -194,9 +194,11 @@
 }
 
 
-
+#pragma mark - 加载数据
 - (void)loadResultData {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [WJDataRequest getJokeContentList:nil compeletion:^(JokeContentResponse *response, NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         JokeContentResultModel *resultM = response.result;
         self.contentArray = resultM.data;
         self.dataArray = self.contentArray;
@@ -210,7 +212,9 @@
 
 
 - (void)loadImageData {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [WJDataRequest getInterestImage:nil compeletion:^(JokeContentResponse *response, NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         JokeContentResultModel *resultM = response.result;
         self.interestImageArray = resultM.data;
         self.dataArray = self.interestImageArray;
@@ -224,7 +228,9 @@
 
 
 - (void)loadWeiXinData {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [WJDataRequest getWeiXin:nil compeletion:^(WeiXinResponse *response, NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         WeiXinResultModel *resultM = response.result;
         self.articleArray = resultM.list;
         self.dataArray = self.articleArray;
@@ -234,22 +240,12 @@
 }
 
 
-
-//放大图片
-- (void)selectButtonClick:(UIButton *)sender {
-    LOG(@"放大图片");
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)showBigImage {
-
-}
-
-
+//把大图切成小图
 -(UIImage *)compressImageWith:(UIImage *)image width:(float)width height:(float)height
 {
     float imageWidth = image.size.width;

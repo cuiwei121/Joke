@@ -24,13 +24,14 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.contentView.backgroundColor = [UIColor whiteColor];
+        self.contentView.backgroundColor = cwGreyColor;
         
         _bgView= [[UIView alloc]init];
         [self.contentView addSubview:_bgView];
-        _bgView.backgroundColor = cwGreyColor;
+        _bgView.backgroundColor = [UIColor whiteColor];
         _bgView.layer.cornerRadius = 5.0f;
-        
+        _bgView.layer.borderColor = [UIColor grayColor].CGColor;
+        _bgView.layer.borderWidth = 1.0f;
         [_bgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.contentView).with.insets(UIEdgeInsetsMake(5, 10, 5, 10));
         }];
