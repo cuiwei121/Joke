@@ -18,12 +18,16 @@
 /**
  *笑话列表
  */
-+ (NSURLSessionDataTask *)getJokeContentList :(NSDictionary *)params compeletion:(void(^)(JokeContentResponse*response, NSError *error))block  {
++ (NSURLSessionDataTask *)getJokeContentList :(NSString *)params compeletion:(void(^)(JokeContentResponse*response, NSError *error))block  {
+    
+    NSTimeInterval time = [[NSDate date] timeIntervalSince1970];
+    long long int date = (long long int)time;
+    date = date - 2*24*60*60*1000;
     
     NSMutableDictionary *param = [@{@"sort":@"asc",
-                                    @"page":@"2",
-                                    @"pagesize":@"10",
-                                    @"time":@"1418745237",
+                                    @"page":params,
+                                    @"pagesize":@"2",
+                                    @"time":@(date),
                                     @"key":@"a91393365afb1f6ca19b3fdd7d9409ec"}mutableCopy];
     //    params = param;
     
@@ -45,10 +49,13 @@
  *interest 趣图
  */
 + (NSURLSessionDataTask *)getInterestImage:(NSDictionary *)params compeletion:(void(^)(JokeContentResponse*response, NSError *error))block {
+    
+    NSTimeInterval time = [[NSDate date] timeIntervalSince1970];
+    long long int date = (long long int)time;
     NSMutableDictionary *param = [@{@"sort":@"asc",
-                                    @"page":@"2",
+                                    @"page":@"1",
                                     @"pagesize":@"10",
-                                    @"time":@"1418745237",
+                                    @"time":@(date),
                                     @"key":@"a91393365afb1f6ca19b3fdd7d9409ec"}mutableCopy];
     //    params = param;
     
@@ -70,10 +77,10 @@
 /**
  *微信精选
  */
-+ (NSURLSessionDataTask *)getWeiXin:(NSDictionary *)params compeletion:(void(^)(WeiXinResponse*response, NSError *error))block {
++ (NSURLSessionDataTask *)getWeiXin:(NSString *)params compeletion:(void(^)(WeiXinResponse*response, NSError *error))block {
     
-    NSMutableDictionary *param = [@{@"pno":@"1",
-                                    @"ps":@"20",
+    NSMutableDictionary *param = [@{@"pno":params,
+                                    @"ps":@"2",
                                     @"dtype":@"json",
                                     @"key":@"d5ed5acf5657955629891a4e597d6227"}mutableCopy];
  
@@ -81,6 +88,7 @@
     
     return [[WJAFNetAPIClient initClient:@"http://v.juhe.cn/"]WJGET:@"weixin/query" parameters:param compeletion:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
+            LOG(@"微信  经文 ： param =  %@ \n response = %@",param,responseObject);
             NSMutableDictionary *resultDict = responseObject;
             WeiXinResponse *messageDetail = [[WeiXinResponse alloc] initWithDictionary:resultDict];
             block(messageDetail, nil);

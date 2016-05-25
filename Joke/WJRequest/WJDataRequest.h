@@ -16,7 +16,7 @@
 /**
  *笑话列表
  */
-+ (NSURLSessionDataTask *)getJokeContentList :(NSDictionary *)params compeletion:(void(^)(JokeContentResponse*response, NSError *error))block ;
++ (NSURLSessionDataTask *)getJokeContentList :(NSString *)params compeletion:(void(^)(JokeContentResponse*response, NSError *error))block ;
 
 /**
  *interest 趣图
@@ -26,5 +26,5 @@
 /**
  *微信精选
  */
-+ (NSURLSessionDataTask *)getWeiXin:(NSDictionary *)params compeletion:(void(^)(WeiXinResponse*response, NSError *error))block ;
++ (NSURLSessionDataTask *)getWeiXin:(NSString *)params compeletion:(void(^)(WeiXinResponse*response, NSError *error))block ;
 @end

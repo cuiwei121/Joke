@@ -19,11 +19,16 @@
 @property (nonatomic, strong) UITableView *jokeTableView;
  
 
-@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) NSMutableArray *dataArray;
 
-@property (nonatomic, strong) NSArray *contentArray;
-@property (nonatomic, strong) NSArray *interestImageArray;
-@property (nonatomic, strong) NSArray *articleArray;
+@property (nonatomic, strong) NSMutableArray *contentArray;
+@property (nonatomic, strong) NSMutableArray *interestImageArray;
+@property (nonatomic, strong) NSMutableArray *articleArray;
+
+//微信加载的页数
+
+@property (nonatomic, assign) int  numberWX;
+@property (nonatomic, assign) int  numberJoke;
 
 //放大的图片的背景图
 @property (nonatomic, strong) UIView *bigImageView;
@@ -36,14 +41,22 @@
     [super viewDidLoad];
     self.title = @"笑话";
     [self createTitleView];
-    self.interestImageArray = [NSArray array];
-    self.articleArray = [NSArray array];
-    self.contentArray = [NSArray array];
+    self.interestImageArray = [NSMutableArray array];
+    self.articleArray = [NSMutableArray array];
+    self.contentArray = [NSMutableArray array];
+    self.numberWX = 1;
+    self.numberJoke = 1;
     
     self.jokeTableView.backgroundColor = [UIColor whiteColor];
-    [self loadResultData];
+//    [self loadWeiXinData:@"0"];
+    [self loadResultData:@"0"];
     
     
+//    //下拉刷新
+    self.jokeTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(endHanderFresh)];
+    
+    //上拉加载
+    self.jokeTableView.mj_footer =  [MJRefreshBackStateFooter footerWithRefreshingTarget:self refreshingAction:@selector(endFooterFresh)];
 }
 
 
@@ -56,7 +69,7 @@
             break;
         case 1:
             self.dataArray = self.articleArray;
-            [self loadWeiXinData];
+            [self loadWeiXinData:@"0"];
             break;
             
             
@@ -89,9 +102,9 @@
     return _jokeTableView;
 }
 
-- (NSArray *)dataArray {
+- (NSMutableArray *)dataArray {
     if (!_dataArray) {
-        _dataArray = [NSArray array];
+        _dataArray = [NSMutableArray array];
     }
     return _dataArray;
 }
@@ -195,14 +208,57 @@
 
 
 #pragma mark - 加载数据
-- (void)loadResultData {
+- (void)loadResultData:(NSString *)footOrHeader {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [WJDataRequest getJokeContentList:nil compeletion:^(JokeContentResponse *response, NSError *error) {
+    NSString *param =nil;
+    if ([footOrHeader isEqualToString:@"1"]) {
+        param = [NSString stringWithFormat:@"%d",self.numberJoke];
+    }else {
+        param = @"1";
+    }
+    
+    [WJDataRequest getJokeContentList:param compeletion:^(JokeContentResponse *response, NSError *error) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        if (error || response == nil) {
+            return ;
+        }
+        
         JokeContentResultModel *resultM = response.result;
-        self.contentArray = resultM.data;
-        self.dataArray = self.contentArray;
-        [self.jokeTableView reloadData];
+        if (resultM.data) {
+            if ([footOrHeader isEqualToString:@"1"]) {
+                _numberJoke ++;
+                NSMutableArray *m = [NSMutableArray arrayWithArray:self.contentArray];
+                if (resultM.data.count > 0) {
+                    for (id temp in resultM.data) {
+                        
+                        if (![m containsObject:temp]) {
+                            [m addObject:temp];
+                        }
+                    }
+                    self.contentArray = m;
+                }
+            }else {
+//                _numberJoke ++;
+                NSMutableArray *m = [NSMutableArray arrayWithArray:self.contentArray];
+                if (resultM.data.count > 0) {
+                    for (id temp in resultM.data) {
+                        if (![m containsObject:temp]) {
+                            [m insertObject:temp atIndex:0];
+                        }
+                        
+                    }
+                    self.contentArray = m;
+                }
+            }
+            
+            
+            self.dataArray = self.contentArray;
+            [self.jokeTableView reloadData];
+            LOG(@"response = %@，，，error = %@",response,error);
+            
+        }
+
 //        NSArray * dataA = resultM.data;
 //        JokeContentDataModel *dataM = [dataA objectAtIndex:0];
 //        LOG(@"%@",dataM.content);
@@ -227,16 +283,83 @@
 }
 
 
-- (void)loadWeiXinData {
+- (void)loadWeiXinData:(NSString *)footOrHeader {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [WJDataRequest getWeiXin:nil compeletion:^(WeiXinResponse *response, NSError *error) {
+    NSString *param =nil;
+    if ([footOrHeader isEqualToString:@"1"]) {
+        param = [NSString stringWithFormat:@"%d",self.numberWX];
+    }else {
+        param = @"1";
+    }
+    
+    
+    [WJDataRequest getWeiXin:param  compeletion:^(WeiXinResponse *response, NSError *error) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        if (error || response == nil) {
+            return ;
+        }
+        
         WeiXinResultModel *resultM = response.result;
-        self.articleArray = resultM.list;
-        self.dataArray = self.articleArray;
-        [self.jokeTableView reloadData];
-        LOG(@"response = %@，，，error = %@",response,error);
+        
+        if (resultM.list) {
+            if ([footOrHeader isEqualToString:@"1"]) {
+                _numberWX ++;
+                NSMutableArray *m = [NSMutableArray arrayWithArray:self.articleArray];
+                if (resultM.list.count > 0) {
+                    for (id temp in resultM.list) {
+                        
+                        if (![m containsObject:temp]) {
+                            [m addObject:temp];
+                        }
+                    }
+                    self.articleArray = m;
+                }
+            }else {
+//                _numberWX ++;
+                NSMutableArray *m = [NSMutableArray arrayWithArray:self.articleArray];
+                if (resultM.list.count > 0) {
+                    for (id temp in resultM.list) {
+                        if (![m containsObject:temp]) {
+                             [m insertObject:temp atIndex:0];
+                        }
+                        
+                    }
+                    self.articleArray = m;
+                }
+            }
+            
+            
+            self.dataArray = self.articleArray;
+            [self.jokeTableView reloadData];
+            LOG(@"response = %@，，，error = %@",response,error);
+
+        }
     }];
+}
+
+
+
+- (void)endHanderFresh {
+    if(self.segment.selectedSegmentIndex == 1) {
+        [self loadWeiXinData:@"0"];
+    }else if(self.segment.selectedSegmentIndex == 0) {
+        [self loadResultData:@"0"];
+    }
+    
+    
+    [self.jokeTableView.mj_header endRefreshing];
+}
+
+- (void)endFooterFresh {
+    
+    if(self.segment.selectedSegmentIndex == 1) {
+        [self loadWeiXinData:@"1"];
+    }else if(self.segment.selectedSegmentIndex == 0) {
+        [self loadResultData:@"1"];
+    }
+    
+    [self.jokeTableView.mj_footer endRefreshing];
 }
 
 
