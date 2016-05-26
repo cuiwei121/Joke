@@ -40,8 +40,11 @@
 
 /**
  *字体设置
+ * Zapfino
+ * HYWaWaZhuanJ //娃娃篆体
+ * -- 或 ??????®¨°È®™?°Í??? //游狼锋芒简体
  */
-#define cwFont(x) [UIFont fontWithName:@"Zapfino" size:x]
+#define cwFont(x) [UIFont fontWithName:@"??????®¨°È®™?°Í???" size:x]
 
 /**
  *  灰色字体 和 灰色线的颜色

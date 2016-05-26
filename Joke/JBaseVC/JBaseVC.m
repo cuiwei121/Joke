@@ -58,13 +58,13 @@
     //在没有设置[segment setApportionsSegmentWidthsByContent:YES]时，每个的宽度按segment的宽度平分
     self.segment.frame = CGRectMake(0,0, 100, 40);
     self.segment.selectedSegmentIndex = 0;
-    [self.segment setTintColor:[UIColor greenColor]];
+//    [self.segment setTintColor:[UIColor greenColor]];
     //    self.segment.layer.cornerRadius = 40;
     [self.segment addTarget:self action:@selector(change:) forControlEvents:UIControlEventValueChanged];
     [titleView addSubview:self.segment];
     self.segment.backgroundColor = [UIColor whiteColor];
     
-    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,  [UIFont fontWithName:@"Helvetica" size:18.f],UITextAttributeFont ,[UIColor whiteColor],UITextAttributeTextShadowColor ,nil];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, cwFont(22),UITextAttributeFont ,[UIColor orangeColor],UITextAttributeTextShadowColor ,nil];
     [self.segment setTitleTextAttributes:dic forState:UIControlStateSelected];
 
     

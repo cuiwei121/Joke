@@ -18,6 +18,8 @@
 		242F96681CB3BF840053FDB8 /* WJConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F96661CB3BF840053FDB8 /* WJConstants.m */; };
 		242F966C1CB3BFF00053FDB8 /* WJDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F966B1CB3BFF00053FDB8 /* WJDataRequest.m */; };
 		242F96701CB3C02D0053FDB8 /* WJBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F966F1CB3C02D0053FDB8 /* WJBaseModel.m */; };
+		2437348D1CF6CAA1004FC436 /* HYWaWaZhuanJ.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24511C2E1CF6B33400B05DD6 /* HYWaWaZhuanJ.ttf */; };
+		2437348F1CF6CF59004FC436 /* PTSwimWolfBody.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2437348E1CF6CF41004FC436 /* PTSwimWolfBody.ttf */; };
 		2468C45A1CB34CA2005A10BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2468C4591CB34CA2005A10BF /* main.m */; };
 		2468C45D1CB34CA2005A10BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2468C45C1CB34CA2005A10BF /* AppDelegate.m */; };
 		2468C4601CB34CA2005A10BF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2468C45F1CB34CA2005A10BF /* ViewController.m */; };
@@ -71,6 +73,8 @@
 		242F966B1CB3BFF00053FDB8 /* WJDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJDataRequest.m; sourceTree = "<group>"; };
 		242F966E1CB3C02D0053FDB8 /* WJBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJBaseModel.h; sourceTree = "<group>"; };
 		242F966F1CB3C02D0053FDB8 /* WJBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJBaseModel.m; sourceTree = "<group>"; };
+		2437348E1CF6CF41004FC436 /* PTSwimWolfBody.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PTSwimWolfBody.ttf; sourceTree = "<group>"; };
+		24511C2E1CF6B33400B05DD6 /* HYWaWaZhuanJ.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HYWaWaZhuanJ.ttf; sourceTree = "<group>"; };
 		2468C4551CB34CA2005A10BF /* Joke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Joke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2468C4591CB34CA2005A10BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2468C45B1CB34CA2005A10BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -220,7 +224,6 @@
 				2468C4611CB34CA2005A10BF /* Main.storyboard */,
 				2468C4641CB34CA2005A10BF /* Assets.xcassets */,
 				2468C4661CB34CA2005A10BF /* LaunchScreen.storyboard */,
-				2468C4691CB34CA2005A10BF /* Info.plist */,
 				2468C4581CB34CA2005A10BF /* Supporting Files */,
 			);
 			path = Joke;
@@ -235,6 +238,9 @@
 				242F96661CB3BF840053FDB8 /* WJConstants.m */,
 				2468C4591CB34CA2005A10BF /* main.m */,
 				242F965E1CB3BB4E0053FDB8 /* Joke_Prefix.pch */,
+				24511C2E1CF6B33400B05DD6 /* HYWaWaZhuanJ.ttf */,
+				2437348E1CF6CF41004FC436 /* PTSwimWolfBody.ttf */,
+				2468C4691CB34CA2005A10BF /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -380,6 +386,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2437348F1CF6CF59004FC436 /* PTSwimWolfBody.ttf in Resources */,
+				2437348D1CF6CAA1004FC436 /* HYWaWaZhuanJ.ttf in Resources */,
 				2489274A1CB7926500638D68 /* h_star_se.png in Resources */,
 				2468C4681CB34CA2005A10BF /* LaunchScreen.storyboard in Resources */,
 				2468C4651CB34CA2005A10BF /* Assets.xcassets in Resources */,

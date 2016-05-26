@@ -51,12 +51,26 @@
 //    [self loadWeiXinData:@"0"];
     [self loadResultData:@"0"];
     
+//    [self loadImageData];
+    
     
 //    //下拉刷新
     self.jokeTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(endHanderFresh)];
     
     //上拉加载
     self.jokeTableView.mj_footer =  [MJRefreshBackStateFooter footerWithRefreshingTarget:self refreshingAction:@selector(endFooterFresh)];
+    
+//    NSArray *familyNames = [UIFont familyNames];
+//    for( NSString *familyName in familyNames )
+//    {
+//        printf( "Family: %s \n", [familyName UTF8String]);
+//        
+//        NSArray *fontNames = [UIFont fontNamesForFamilyName:familyName];
+//        for( NSString *fontName in fontNames )
+//        {
+//            printf( "\tFont: %s \n", [fontName UTF8String] );
+//        }
+//    }
 }
 
 
@@ -142,6 +156,7 @@
         }
         JokeContentDataModel *dataM = [self.dataArray objectAtIndex:indexPath.row];
         cell.contentLabel.text = dataM.content;
+        [cell.contentLabel spaceLabel];
         
         
         //    cell.textLabel.text = @"q213134";
@@ -210,12 +225,8 @@
 #pragma mark - 加载数据
 - (void)loadResultData:(NSString *)footOrHeader {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    NSString *param =nil;
-    if ([footOrHeader isEqualToString:@"1"]) {
-        param = [NSString stringWithFormat:@"%d",self.numberJoke];
-    }else {
-        param = @"1";
-    }
+    NSString *param = [NSString stringWithFormat:@"%d",self.numberJoke];
+   
     
     [WJDataRequest getJokeContentList:param compeletion:^(JokeContentResponse *response, NSError *error) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
@@ -239,7 +250,7 @@
                     self.contentArray = m;
                 }
             }else {
-//                _numberJoke ++;
+                _numberJoke ++;
                 NSMutableArray *m = [NSMutableArray arrayWithArray:self.contentArray];
                 if (resultM.data.count > 0) {
                     for (id temp in resultM.data) {
@@ -271,10 +282,10 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [WJDataRequest getInterestImage:nil compeletion:^(JokeContentResponse *response, NSError *error) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        JokeContentResultModel *resultM = response.result;
-        self.interestImageArray = resultM.data;
-        self.dataArray = self.interestImageArray;
-        [self.jokeTableView reloadData];
+//        JokeContentResultModel *resultM = response.result;
+//        self.interestImageArray = resultM.data;
+//        self.dataArray = self.interestImageArray;
+//        [self.jokeTableView reloadData];
         //        NSArray * dataA = resultM.data;
         //        JokeContentDataModel *dataM = [dataA objectAtIndex:0];
         //        LOG(@"%@",dataM.content);

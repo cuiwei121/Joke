@@ -26,7 +26,7 @@
 //    NSString *urlStr = [URL_PREFIX stringByAppendingString:dest];
 //    self.urlArticle = urlStr;
     
-    self.contentWebView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    self.contentWebView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT - 64)];
     [self.view addSubview:self.contentWebView];
     self.contentWebView.delegate = self;
     

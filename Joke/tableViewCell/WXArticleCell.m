@@ -35,7 +35,7 @@
     
     _wxContentLabel = [[UILabel alloc]init];
     [self.contentView addSubview:_wxContentLabel];
-    _wxContentLabel.font = cwFont(10);
+    _wxContentLabel.font = cwFont(18);
     _wxContentLabel.numberOfLines = 0;
     _wxContentLabel.frame = CGRectMake(120, 10, SCREEN_WIDTH - 135, 80);
     

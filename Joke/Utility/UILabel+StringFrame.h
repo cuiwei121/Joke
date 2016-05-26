@@ -10,4 +10,7 @@
 
 @interface UILabel (StringFrame)
 - (CGSize)boundingRectWithSize:(CGSize)size;
+
+//设置行间距
+- (void)spaceLabel ;
 @end
