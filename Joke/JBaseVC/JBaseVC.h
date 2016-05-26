@@ -24,4 +24,9 @@
  * 按钮的点击事件
  */
 -(void)change:(UISegmentedControl *)Seg;
+
+/**
+ * 我的里面的内容
+ */
+- (void)myAccountClick:(UIButton *)sender;
 @end

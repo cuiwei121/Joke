@@ -31,6 +31,9 @@
 		248927481CB766CC00638D68 /* InterestImageTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 248927471CB766CC00638D68 /* InterestImageTVCell.m */; };
 		2489274A1CB7926500638D68 /* h_star_se.png in Resources */ = {isa = PBXBuildFile; fileRef = 248927491CB7926500638D68 /* h_star_se.png */; };
 		2489274D1CB7B14200638D68 /* WeiXinResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2489274C1CB7B14200638D68 /* WeiXinResponse.m */; };
+		24F933A61CF6F207001DAE72 /* MyAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F933A51CF6F207001DAE72 /* MyAccountVC.m */; };
+		24F933A91CF6F50B001DAE72 /* MyAccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F933A81CF6F50B001DAE72 /* MyAccountCell.m */; };
+		24F933AC1CF6FCCE001DAE72 /* MyCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F933AB1CF6FCCE001DAE72 /* MyCollectionVC.m */; };
 		24FB3C781CF573F100B0144D /* WXArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FB3C771CF573F100B0144D /* WXArticleCell.m */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +100,12 @@
 		2489274B1CB7B14200638D68 /* WeiXinResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiXinResponse.h; sourceTree = "<group>"; };
 		2489274C1CB7B14200638D68 /* WeiXinResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiXinResponse.m; sourceTree = "<group>"; };
 		24C88A1E24300AE40F385EE7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		24F933A41CF6F207001DAE72 /* MyAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAccountVC.h; sourceTree = "<group>"; };
+		24F933A51CF6F207001DAE72 /* MyAccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAccountVC.m; sourceTree = "<group>"; };
+		24F933A71CF6F50B001DAE72 /* MyAccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAccountCell.h; sourceTree = "<group>"; };
+		24F933A81CF6F50B001DAE72 /* MyAccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAccountCell.m; sourceTree = "<group>"; };
+		24F933AA1CF6FCCE001DAE72 /* MyCollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionVC.h; sourceTree = "<group>"; };
+		24F933AB1CF6FCCE001DAE72 /* MyCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionVC.m; sourceTree = "<group>"; };
 		24FB3C761CF573F100B0144D /* WXArticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXArticleCell.h; sourceTree = "<group>"; };
 		24FB3C771CF573F100B0144D /* WXArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXArticleCell.m; sourceTree = "<group>"; };
 		265FD4B11B37B1659CEF762A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +149,8 @@
 				248927471CB766CC00638D68 /* InterestImageTVCell.m */,
 				24FB3C761CF573F100B0144D /* WXArticleCell.h */,
 				24FB3C771CF573F100B0144D /* WXArticleCell.m */,
+				24F933A71CF6F50B001DAE72 /* MyAccountCell.h */,
+				24F933A81CF6F50B001DAE72 /* MyAccountCell.m */,
 			);
 			path = tableViewCell;
 			sourceTree = "<group>";
@@ -221,6 +232,10 @@
 				2468C45F1CB34CA2005A10BF /* ViewController.m */,
 				241638131CF45DF1007524EE /* WXArticleVC.h */,
 				241638141CF45DF1007524EE /* WXArticleVC.m */,
+				24F933A41CF6F207001DAE72 /* MyAccountVC.h */,
+				24F933A51CF6F207001DAE72 /* MyAccountVC.m */,
+				24F933AA1CF6FCCE001DAE72 /* MyCollectionVC.h */,
+				24F933AB1CF6FCCE001DAE72 /* MyCollectionVC.m */,
 				2468C4611CB34CA2005A10BF /* Main.storyboard */,
 				2468C4641CB34CA2005A10BF /* Assets.xcassets */,
 				2468C4661CB34CA2005A10BF /* LaunchScreen.storyboard */,
@@ -467,12 +482,15 @@
 				248927481CB766CC00638D68 /* InterestImageTVCell.m in Sources */,
 				241F17031CB664A400EADF63 /* BaseTableViewCell.m in Sources */,
 				241638151CF45DF1007524EE /* WXArticleVC.m in Sources */,
+				24F933AC1CF6FCCE001DAE72 /* MyCollectionVC.m in Sources */,
 				242F96681CB3BF840053FDB8 /* WJConstants.m in Sources */,
 				2468C4601CB34CA2005A10BF /* ViewController.m in Sources */,
 				241F170D1CB66BFA00EADF63 /* UILabel+StringFrame.m in Sources */,
 				241F17091CB6656500EADF63 /* ContentTVCell.m in Sources */,
 				2489274D1CB7B14200638D68 /* WeiXinResponse.m in Sources */,
 				2468C45D1CB34CA2005A10BF /* AppDelegate.m in Sources */,
+				24F933A91CF6F50B001DAE72 /* MyAccountCell.m in Sources */,
+				24F933A61CF6F207001DAE72 /* MyAccountVC.m in Sources */,
 				241F16FF1CB65C0900EADF63 /* JokeContentResponse.m in Sources */,
 				242F96671CB3BF840053FDB8 /* WJAFNetAPIClient.m in Sources */,
 				242F96621CB3BD150053FDB8 /* JBaseVC.m in Sources */,

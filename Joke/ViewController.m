@@ -14,6 +14,7 @@
 #import "WXArticleVC.h"
 #import "WXArticleCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "MyAccountVC.h"
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *jokeTableView;
@@ -101,6 +102,10 @@
     [self.jokeTableView reloadData];
 }
 
+- (void)myAccountClick:(UIButton *)sender {
+    MyAccountVC * myAccount = [[MyAccountVC alloc]init];
+    [self.navigationController pushViewController:myAccount animated:YES];
+}
 
 - (UITableView *)jokeTableView {
 

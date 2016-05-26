@@ -75,10 +75,22 @@
     
     
     //添加我的按钮
+    UIButton * myButton = [[UIButton alloc]init];
+    myButton.frame = CGRectMake(0, 0, 40, 40);
+    [myButton setTitle:@"我的" forState:UIControlStateNormal];
+    UIBarButtonItem *myBarButton = [[UIBarButtonItem alloc]initWithCustomView:myButton];
+    [self.navigationItem setRightBarButtonItem:myBarButton];
+    [myButton addTarget:self action:@selector(myAccountClick:) forControlEvents:UIControlEventTouchUpInside];
+    [myButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+//    myButton.backgroundColor = [UIColor orangeColor];
 }
 
 
 -(void)change:(UISegmentedControl *)Seg{
+}
+
+- (void)myAccountClick:(UIButton *)sender {
+
 }
 
 - (void)didReceiveMemoryWarning {

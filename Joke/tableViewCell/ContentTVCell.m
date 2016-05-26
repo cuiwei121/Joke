@@ -63,11 +63,17 @@
 }
 
 - (void)collectContent:(UIButton *)sender {
-   NSMutableArray * collectA = [[NSUserDefaults standardUserDefaults] objectForKey:COLLECT_ARRAY_KEY];
+    //userdefault中返回的数组是不可变的， 所以要转换成可变的数组 在赋值给可变数组的变量
+    NSMutableArray * collectA =[ [[NSUserDefaults standardUserDefaults] objectForKey:COLLECT_ARRAY_KEY] mutableCopy];
     if (!collectA) {
         collectA = [NSMutableArray array];
     }
-    [collectA addObject:_contentLabel.text];
+    
+    if (![collectA containsObject:_contentLabel.text]) {
+       [collectA addObject:_contentLabel.text];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setObject:collectA forKey:COLLECT_ARRAY_KEY];
 }
 
 - (void)shareImage:(UIButton *)sender {
