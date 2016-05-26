@@ -31,7 +31,7 @@
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self.text];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     
-    [paragraphStyle setLineSpacing:18];//调整行间距
+    [paragraphStyle setLineSpacing:ContentFontSpace];//调整行间距
     
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [self.text length])];
     self.attributedText = attributedString;

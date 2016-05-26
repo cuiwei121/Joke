@@ -49,14 +49,14 @@
 
 - (void)createTitleView {
     UIView * titleView = [[UIView alloc]init];
-    titleView.frame = CGRectMake(0, 0, 100, 40);
+    titleView.frame = CGRectMake(0, 0, 100, 30);
     titleView.backgroundColor = [UIColor orangeColor];
     
     NSArray *arr = @[@"笑话",@"精文"];
     self.segment = [[UISegmentedControl alloc]initWithItems:arr];
     //        [segment setApportionsSegmentWidthsByContent:YES];
     //在没有设置[segment setApportionsSegmentWidthsByContent:YES]时，每个的宽度按segment的宽度平分
-    self.segment.frame = CGRectMake(0,0, 100, 40);
+    self.segment.frame = CGRectMake(0,0, 100, 30);
     self.segment.selectedSegmentIndex = 0;
 //    [self.segment setTintColor:[UIColor greenColor]];
     //    self.segment.layer.cornerRadius = 40;
@@ -64,11 +64,17 @@
     [titleView addSubview:self.segment];
     self.segment.backgroundColor = [UIColor whiteColor];
     
-    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, cwFont(22),UITextAttributeFont ,[UIColor orangeColor],UITextAttributeTextShadowColor ,nil];
-    [self.segment setTitleTextAttributes:dic forState:UIControlStateSelected];
+    //[UIColor greenColor],UITextAttributeTextShadowColor
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, cwFont(18),UITextAttributeFont,[UIColor blackColor],UITextAttributeTextShadowColor ,nil];
+    [self.segment setTitleTextAttributes:dic forState:UIControlStateNormal];
 
     
     self.navigationItem.titleView = titleView;
+    
+    
+    
+    
+    //添加我的按钮
 }
 
 

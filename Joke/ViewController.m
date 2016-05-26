@@ -76,6 +76,7 @@
 
 -(void)change:(UISegmentedControl *)Seg{
     NSInteger Index = Seg.selectedSegmentIndex;
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     
     switch (Index) {
         case 0:
@@ -231,6 +232,7 @@
     [WJDataRequest getJokeContentList:param compeletion:^(JokeContentResponse *response, NSError *error) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
+       
         if (error || response == nil) {
             return ;
         }
@@ -263,9 +265,10 @@
                 }
             }
             
-            
-            self.dataArray = self.contentArray;
-            [self.jokeTableView reloadData];
+            if(self.segment.selectedSegmentIndex == 0) {
+                self.dataArray = self.contentArray;
+                [self.jokeTableView reloadData];
+            }
             LOG(@"response = %@，，，error = %@",response,error);
             
         }
@@ -340,9 +343,11 @@
                 }
             }
             
-            
-            self.dataArray = self.articleArray;
-            [self.jokeTableView reloadData];
+            if(self.segment.selectedSegmentIndex == 1) {
+                self.dataArray = self.articleArray;
+                [self.jokeTableView reloadData];
+            }
+           
             LOG(@"response = %@，，，error = %@",response,error);
 
         }

@@ -47,6 +47,11 @@
 #define cwFont(x) [UIFont fontWithName:@"??????®¨°È®™?°Í???" size:x]
 
 /**
+ *  搞笑文章的内容间距 字体大小
+ */
+#define ContentFontSpace 18
+
+/**
  *  灰色字体 和 灰色线的颜色
  */
 #define cwGreyColor  [UIColor colorWithRed:(195 / 255.0f) green:(195 / 255.0f) blue:(195/ 255.0f) alpha:1]

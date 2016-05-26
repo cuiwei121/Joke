@@ -23,7 +23,7 @@
     if (self) {
         _contentLabel = [[UILabel alloc]init];
         [self.contentView addSubview:_contentLabel];
-        _contentLabel.font = cwFont(18);
+        _contentLabel.font = cwFont(ContentFontSpace);
         _contentLabel.numberOfLines = 0;
         [_contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.contentView).with.insets(UIEdgeInsetsMake(5, 15, 45, 15));
@@ -52,6 +52,8 @@
             make.width.height.equalTo(@(50));
         }];
         
+        shareButton.titleLabel.font = cwFont(20);
+        collectButton.titleLabel.font = cwFont(20);
         
         [shareButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         [collectButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
