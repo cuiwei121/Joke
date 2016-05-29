@@ -27,6 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setNavigationButton];
     self.title = @"我的";
     
     self.myAccountTableV.backgroundColor = [UIColor lightGrayColor];

@@ -11,5 +11,6 @@
 @interface ContentTVCell : BaseTableViewCell
 @property (nonatomic, strong) UILabel *contentLabel;
 
+@property (nonatomic, strong)  UIButton *collectButton ;
 
 @end
