@@ -42,21 +42,21 @@
             make.width.height.equalTo(@(50));
         }];
         //收藏
-        UIButton *collectButton = [[UIButton alloc]init];
-        [collectButton addTarget:self action:@selector(collectContent:) forControlEvents:UIControlEventTouchUpInside];
-        [collectButton setTitle:@"收藏" forState:UIControlStateNormal];
-        [self.contentView addSubview:collectButton];
-        [collectButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        _collectButton = [[UIButton alloc]init];
+        [_collectButton addTarget:self action:@selector(collectContent:) forControlEvents:UIControlEventTouchUpInside];
+        [_collectButton setTitle:@"收藏" forState:UIControlStateNormal];
+        [self.contentView addSubview:_collectButton];
+        [_collectButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.contentView).offset(-5);
             make.right.equalTo(self.contentView).offset(-30);
             make.width.height.equalTo(@(50));
         }];
         
         shareButton.titleLabel.font = cwFont(20);
-        collectButton.titleLabel.font = cwFont(20);
+        _collectButton.titleLabel.font = cwFont(20);
         
         [shareButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-        [collectButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        [_collectButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         
     }
     return self;
@@ -64,6 +64,7 @@
 
 - (void)collectContent:(UIButton *)sender {
     //userdefault中返回的数组是不可变的， 所以要转换成可变的数组 在赋值给可变数组的变量
+    LOG(@"收藏");
     NSMutableArray * collectA =[ [[NSUserDefaults standardUserDefaults] objectForKey:COLLECT_ARRAY_KEY] mutableCopy];
     if (!collectA) {
         collectA = [NSMutableArray array];
@@ -85,8 +86,6 @@
 - (CGFloat)returnCellHeight {
     
     CGSize size = [self.contentLabel boundingRectWithSize:CGSizeMake((SCREEN_WIDTH - 30)/2, 0)];
-    
-    int i = size.height / (int)self.contentLabel.font;
     
     CGFloat h = size.height + 60;
     return h;
