@@ -45,10 +45,8 @@
         _collectButton = [[UIButton alloc]init];
         [_collectButton addTarget:self action:@selector(collectContent:) forControlEvents:UIControlEventTouchUpInside];
         [_collectButton setTitle:@"收藏" forState:UIControlStateNormal];
-<<<<<<< HEAD
-=======
         [_collectButton setTitle:@"已收藏" forState:UIControlStateSelected];
->>>>>>> edb3dbfd577b3467b275961dcf3c0f6e78a3c73d
+ 
         [self.contentView addSubview:_collectButton];
         [_collectButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.contentView).offset(-5);
@@ -57,13 +55,10 @@
             make.width.equalTo(@(60));
         }];
         
-<<<<<<< HEAD
-        shareButton.titleLabel.font = cwFont(20);
-        _collectButton.titleLabel.font = cwFont(20);
-=======
+ 
         shareButton.titleLabel.font = cwFont(18);
         _collectButton.titleLabel.font = cwFont(18);
->>>>>>> edb3dbfd577b3467b275961dcf3c0f6e78a3c73d
+
         
         [shareButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         [_collectButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
