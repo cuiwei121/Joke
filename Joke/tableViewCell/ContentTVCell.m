@@ -45,15 +45,25 @@
         _collectButton = [[UIButton alloc]init];
         [_collectButton addTarget:self action:@selector(collectContent:) forControlEvents:UIControlEventTouchUpInside];
         [_collectButton setTitle:@"收藏" forState:UIControlStateNormal];
+<<<<<<< HEAD
+=======
+        [_collectButton setTitle:@"已收藏" forState:UIControlStateSelected];
+>>>>>>> edb3dbfd577b3467b275961dcf3c0f6e78a3c73d
         [self.contentView addSubview:_collectButton];
         [_collectButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.contentView).offset(-5);
-            make.right.equalTo(self.contentView).offset(-30);
-            make.width.height.equalTo(@(50));
+            make.right.equalTo(self.contentView).offset(-20);
+            make.height.equalTo(@(50));
+            make.width.equalTo(@(60));
         }];
         
+<<<<<<< HEAD
         shareButton.titleLabel.font = cwFont(20);
         _collectButton.titleLabel.font = cwFont(20);
+=======
+        shareButton.titleLabel.font = cwFont(18);
+        _collectButton.titleLabel.font = cwFont(18);
+>>>>>>> edb3dbfd577b3467b275961dcf3c0f6e78a3c73d
         
         [shareButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         [_collectButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
@@ -70,9 +80,21 @@
         collectA = [NSMutableArray array];
     }
     
-    if (![collectA containsObject:_contentLabel.text]) {
-       [collectA addObject:_contentLabel.text];
+    if (sender.selected) {//已收藏状态
+        sender.selected = NO;
+        if ([collectA containsObject:_contentLabel.text]) {
+            [collectA removeObject:_contentLabel.text];
+        }
+    }else {
+        sender.selected = YES;
+        if (![collectA containsObject:_contentLabel.text]) {
+            [collectA addObject:_contentLabel.text];
+        }
     }
+    
+//    if (![collectA containsObject:_contentLabel.text]) {
+//       [collectA addObject:_contentLabel.text];
+//    }
     
     [[NSUserDefaults standardUserDefaults] setObject:collectA forKey:COLLECT_ARRAY_KEY];
 }
