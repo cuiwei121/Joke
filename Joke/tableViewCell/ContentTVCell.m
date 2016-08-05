@@ -7,6 +7,7 @@
 //
 
 #import "ContentTVCell.h"
+#import <ShareSDK/ShareSDK.h>
 
 @implementation ContentTVCell
 
@@ -78,8 +79,32 @@
 }
 
 - (void)shareImage:(UIButton *)sender {
-    LOG(@"分享图片到好友");
-    [self getShareImage];
+//    LOG(@"分享图片到好友");
+//    [self getShareImage];
+    
+    id<ISSContent> publishContent = [ShareSDK content:@"笑话的世界"
+                                       defaultContent:@"默认分享内容测试，没内容时显示"
+                                                image:[ShareSDK pngImageWithImage:[self getShareImage]]
+                                                title:@"笑死我了~~"
+                                                  url:@"http://www.xzzai.com"
+                                          description:@"搞笑的都在这里呢，快来看！"
+                                            mediaType:SSPublishContentMediaTypeImage];
+    [ShareSDK showShareActionSheet:nil
+                         shareList:nil
+                           content:publishContent
+                     statusBarTips:YES
+                       authOptions:nil
+                      shareOptions: nil
+                            result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+                                if (state == SSResponseStateSuccess)
+                                {
+                                    NSLog(@"分享成功");
+                                }
+                                else if (state == SSResponseStateFail)
+                                {
+                                    NSLog(@"分享失败");
+                                }
+                            }];
 }
 
 
