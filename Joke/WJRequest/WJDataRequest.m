@@ -26,7 +26,7 @@
     
     NSMutableDictionary *param = [@{@"sort":@"asc",
                                     @"page":params,
-                                    @"pagesize":@"2",
+                                    @"pagesize":@"10",
                                     @"time":@(date),
                                     @"key":@"a91393365afb1f6ca19b3fdd7d9409ec"}mutableCopy];
     //    params = param;
@@ -59,7 +59,7 @@
     //http://v.juhe.cn/wz/citys
     return [[WJAFNetAPIClient initClient:@"http://v.juhe.cn/"]WJGET:@"wz/citys" parameters:param compeletion:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
-            LOG(@"聚合数据   ： param =  %@ \n response = %@",param,responseObject);
+            //LOG(@"聚合数据   ： param =  %@ \n response = %@",param,responseObject);
 //            NSMutableDictionary *resultDict = responseObject;
 //            WeiXinResponse *messageDetail = [[WeiXinResponse alloc] initWithDictionary:resultDict];
 //            block(messageDetail, nil);
@@ -106,9 +106,10 @@
     
     return [[WJAFNetAPIClient initClient:@"http://v.juhe.cn/"]WJGET:@"weixin/query" parameters:param compeletion:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
-            LOG(@"微信  经文 ： param =  %@ \n response = %@",param,responseObject);
+            //LOG(@"微信  经文 ： param =  %@ \n response = %@",param,responseObject);
             NSMutableDictionary *resultDict = responseObject;
             WeiXinResponse *messageDetail = [[WeiXinResponse alloc] initWithDictionary:resultDict];
+             LOG(@"微信  经文 ： reason =  %@  @",messageDetail.reason);
             block(messageDetail, nil);
         }else {
             block(nil, error);

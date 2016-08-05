@@ -74,10 +74,10 @@
     
     return [self POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-         LOG(@"URL = %@ ,=== post请求 = %@",URLString,responseObject);
+         //LOG(@"URL = %@ ,=== post请求 = %@",URLString,responseObject);
         block(task,responseObject,nil);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        LOG(@"错误信息error =  %@",error);
+        LOG(@"URL = %@  错误信息error =  %@",URLString,error);
         block(task,nil,error);
     }];
     
@@ -103,12 +103,12 @@
 //    }];
     
     return  [self GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        LOG(@"URL = %@ ,=== get请求 = %@",URLString,responseObject);
+        //LOG(@"URL = %@ ,=== get请求 = %@",URLString,responseObject);
         
         block(task,responseObject,nil);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        LOG(@"错误信息error =  %@",error);
+         LOG(@"URL = %@  错误信息error =  %@",URLString,error);
         block(task,nil,error);
     }];
 }

@@ -7,6 +7,9 @@
 //
 
 #import "ContentTVCell.h"
+#import <ShareSDK/ShareSDK.h>
+
+
 
 @implementation ContentTVCell
 
@@ -96,7 +99,34 @@
 
 - (void)shareImage:(UIButton *)sender {
     LOG(@"分享图片到好友");
-    [self getShareImage];
+    
+//    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"card"  ofType:@"png"];
+    //构造分享内容
+    id<ISSContent> publishContent = [ShareSDK content:@"搞笑~~~"
+                                       defaultContent:@"默认分享内容测试，没内容时显示"
+                                                image:[ShareSDK pngImageWithImage:[self getShareImage]]
+                                                title:@"太搞笑了"
+                                                  url:@"http://www.xzzai.com"
+                                          description:@"笑话都在这里哦！"
+                                            mediaType:SSPublishContentMediaTypeImage];
+    [ShareSDK showShareActionSheet:nil
+                         shareList:nil
+                           content:publishContent
+                     statusBarTips:YES
+                       authOptions:nil
+                      shareOptions: nil
+                            result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+                                if (state == SSResponseStateSuccess)
+                                {
+                                    NSLog(@"分享成功");
+                                }
+                                else if (state == SSResponseStateFail)
+                                {
+                                    NSLog(@"分享失败 错误吗：= %d ，错误信息描述 = %@",[error errorCode],[error errorDescription]);
+                                }
+                            }];
+    
+//    [self getShareImage];
 }
 
 
@@ -117,27 +147,26 @@
     viewBG.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     
     //中间的图片
-    UIImageView * starImageV = [[UIImageView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT/2 - 30, 60, 60)];
-    starImageV.image = [UIImage imageNamed:@"h_star_se"];
-    [viewBG addSubview:starImageV];
+//    UIImageView * starImageV = [[UIImageView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT/2 - 30, 60, 60)];
+//    starImageV.image = [UIImage imageNamed:@"h_star_se"];
+//    [viewBG addSubview:starImageV];
     
     //文本的长度
-    CGSize size = [self.contentLabel boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 30, 0)];
+    CGSize size = [self.contentLabel boundingRectWithSize:CGSizeMake((SCREEN_WIDTH - 30)/2, 0)];
     if (size.height > SCREEN_HEIGHT) {
         viewBG.frame = CGRectMake(0, 0, SCREEN_WIDTH, size.height);
     }
     
     UILabel * shareLabel = [[UILabel alloc]init];
-    shareLabel.frame = CGRectMake(15, 5, SCREEN_WIDTH - 30, size.height);
+    shareLabel.frame = CGRectMake(15, 15, SCREEN_WIDTH - 30, size.height);
     shareLabel.text =[NSString stringWithFormat:@"%@",_contentLabel.text];
-    shareLabel.font = cwFont(15);
+    shareLabel.font = cwFont(ContentFontSpace);
     shareLabel.numberOfLines = 0;
     [viewBG addSubview:shareLabel];
     
     
     viewBG.backgroundColor = [UIColor lightGrayColor];
     shareLabel.backgroundColor = [UIColor clearColor];
-    
     
     //截图 viewBG截取的图片的大小
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(CGRectGetWidth(viewBG.frame), CGRectGetHeight(viewBG.frame)), NO, 2.0);
@@ -147,7 +176,7 @@
     
     
     //将图片保存到相册中
-    //UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+//    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
     return image;
 }
 
