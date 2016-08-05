@@ -93,6 +93,28 @@
 
 }
 
+
+/**
+ * 设置tabbar  navigationItem
+ */
+- (void)setNavigationButton {
+    UIButton * backButton = [[UIButton alloc]init];
+    backButton.frame = CGRectMake(0, 0, 50, 50);
+    [backButton setTitle:@"返回" forState:UIControlStateNormal];
+    
+    UIBarButtonItem *myBarButton = [[UIBarButtonItem alloc]initWithCustomView:backButton];
+    [self.navigationItem setLeftBarButtonItem:myBarButton];
+    [backButton addTarget:self action:@selector(backOnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [backButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+
+    
+}
+
+- (void)backOnClick:(UIButton *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -33,4 +33,11 @@
  * 我的里面的内容
  */
 - (void)myAccountClick:(UIButton *)sender;
+
+/**
+ * 设置tabbar  navigationItem
+ */
+- (void)setNavigationButton;
+
+
 @end

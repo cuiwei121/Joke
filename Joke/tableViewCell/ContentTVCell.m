@@ -8,6 +8,11 @@
 
 #import "ContentTVCell.h"
 #import <ShareSDK/ShareSDK.h>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> bca173d3c98eb5a66484c36620cbd634b8c5b0d2
 
 @implementation ContentTVCell
 
@@ -46,15 +51,20 @@
         _collectButton = [[UIButton alloc]init];
         [_collectButton addTarget:self action:@selector(collectContent:) forControlEvents:UIControlEventTouchUpInside];
         [_collectButton setTitle:@"收藏" forState:UIControlStateNormal];
+        [_collectButton setTitle:@"已收藏" forState:UIControlStateSelected];
+ 
         [self.contentView addSubview:_collectButton];
         [_collectButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.contentView).offset(-5);
-            make.right.equalTo(self.contentView).offset(-30);
-            make.width.height.equalTo(@(50));
+            make.right.equalTo(self.contentView).offset(-20);
+            make.height.equalTo(@(50));
+            make.width.equalTo(@(60));
         }];
         
-        shareButton.titleLabel.font = cwFont(20);
-        _collectButton.titleLabel.font = cwFont(20);
+ 
+        shareButton.titleLabel.font = cwFont(18);
+        _collectButton.titleLabel.font = cwFont(18);
+
         
         [shareButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         [_collectButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
@@ -71,14 +81,27 @@
         collectA = [NSMutableArray array];
     }
     
-    if (![collectA containsObject:_contentLabel.text]) {
-       [collectA addObject:_contentLabel.text];
+    if (sender.selected) {//已收藏状态
+        sender.selected = NO;
+        if ([collectA containsObject:_contentLabel.text]) {
+            [collectA removeObject:_contentLabel.text];
+        }
+    }else {
+        sender.selected = YES;
+        if (![collectA containsObject:_contentLabel.text]) {
+            [collectA addObject:_contentLabel.text];
+        }
     }
+    
+//    if (![collectA containsObject:_contentLabel.text]) {
+//       [collectA addObject:_contentLabel.text];
+//    }
     
     [[NSUserDefaults standardUserDefaults] setObject:collectA forKey:COLLECT_ARRAY_KEY];
 }
 
 - (void)shareImage:(UIButton *)sender {
+<<<<<<< HEAD
 //    LOG(@"分享图片到好友");
 //    [self getShareImage];
     
@@ -88,6 +111,18 @@
                                                 title:@"笑死我了~~"
                                                   url:@"http://www.xzzai.com"
                                           description:@"搞笑的都在这里呢，快来看！"
+=======
+    LOG(@"分享图片到好友");
+    
+//    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"card"  ofType:@"png"];
+    //构造分享内容
+    id<ISSContent> publishContent = [ShareSDK content:@"搞笑~~~"
+                                       defaultContent:@"默认分享内容测试，没内容时显示"
+                                                image:[ShareSDK pngImageWithImage:[self getShareImage]]
+                                                title:@"太搞笑了"
+                                                  url:@"http://www.xzzai.com"
+                                          description:@"笑话都在这里哦！"
+>>>>>>> bca173d3c98eb5a66484c36620cbd634b8c5b0d2
                                             mediaType:SSPublishContentMediaTypeImage];
     [ShareSDK showShareActionSheet:nil
                          shareList:nil
@@ -102,9 +137,17 @@
                                 }
                                 else if (state == SSResponseStateFail)
                                 {
+<<<<<<< HEAD
                                     NSLog(@"分享失败");
                                 }
                             }];
+=======
+                                    NSLog(@"分享失败 错误吗：= %d ，错误信息描述 = %@",[error errorCode],[error errorDescription]);
+                                }
+                            }];
+    
+//    [self getShareImage];
+>>>>>>> bca173d3c98eb5a66484c36620cbd634b8c5b0d2
 }
 
 
@@ -125,27 +168,26 @@
     viewBG.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     
     //中间的图片
-    UIImageView * starImageV = [[UIImageView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT/2 - 30, 60, 60)];
-    starImageV.image = [UIImage imageNamed:@"h_star_se"];
-    [viewBG addSubview:starImageV];
+//    UIImageView * starImageV = [[UIImageView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT/2 - 30, 60, 60)];
+//    starImageV.image = [UIImage imageNamed:@"h_star_se"];
+//    [viewBG addSubview:starImageV];
     
     //文本的长度
-    CGSize size = [self.contentLabel boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 30, 0)];
+    CGSize size = [self.contentLabel boundingRectWithSize:CGSizeMake((SCREEN_WIDTH - 30)/2, 0)];
     if (size.height > SCREEN_HEIGHT) {
         viewBG.frame = CGRectMake(0, 0, SCREEN_WIDTH, size.height);
     }
     
     UILabel * shareLabel = [[UILabel alloc]init];
-    shareLabel.frame = CGRectMake(15, 5, SCREEN_WIDTH - 30, size.height);
+    shareLabel.frame = CGRectMake(15, 15, SCREEN_WIDTH - 30, size.height);
     shareLabel.text =[NSString stringWithFormat:@"%@",_contentLabel.text];
-    shareLabel.font = cwFont(15);
+    shareLabel.font = cwFont(ContentFontSpace);
     shareLabel.numberOfLines = 0;
     [viewBG addSubview:shareLabel];
     
     
     viewBG.backgroundColor = [UIColor lightGrayColor];
     shareLabel.backgroundColor = [UIColor clearColor];
-    
     
     //截图 viewBG截取的图片的大小
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(CGRectGetWidth(viewBG.frame), CGRectGetHeight(viewBG.frame)), NO, 2.0);
@@ -155,7 +197,7 @@
     
     
     //将图片保存到相册中
-    //UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+//    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
     return image;
 }
 

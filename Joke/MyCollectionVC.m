@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setNavigationButton];
     self.title = @"我的收藏";
     
     
@@ -77,6 +78,7 @@
     }
     NSString *dataM = [self.dataArray objectAtIndex:indexPath.row];
     cell.contentLabel.text = dataM;
+    cell.collectButton.selected = YES;
     [cell.contentLabel spaceLabel];
     
     //setImageWithURL:dataM.url];
@@ -85,6 +87,9 @@
     
     
 }
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

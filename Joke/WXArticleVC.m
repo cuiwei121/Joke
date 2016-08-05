@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setNavigationButton];
     self.title = @"文章";
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
