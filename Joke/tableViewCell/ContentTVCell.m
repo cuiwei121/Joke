@@ -8,11 +8,6 @@
 
 #import "ContentTVCell.h"
 #import <ShareSDK/ShareSDK.h>
-<<<<<<< HEAD
-=======
-
-
->>>>>>> bca173d3c98eb5a66484c36620cbd634b8c5b0d2
 
 @implementation ContentTVCell
 
@@ -101,17 +96,6 @@
 }
 
 - (void)shareImage:(UIButton *)sender {
-<<<<<<< HEAD
-//    LOG(@"分享图片到好友");
-//    [self getShareImage];
-    
-    id<ISSContent> publishContent = [ShareSDK content:@"笑话的世界"
-                                       defaultContent:@"默认分享内容测试，没内容时显示"
-                                                image:[ShareSDK pngImageWithImage:[self getShareImage]]
-                                                title:@"笑死我了~~"
-                                                  url:@"http://www.xzzai.com"
-                                          description:@"搞笑的都在这里呢，快来看！"
-=======
     LOG(@"分享图片到好友");
     
 //    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"card"  ofType:@"png"];
@@ -122,7 +106,6 @@
                                                 title:@"太搞笑了"
                                                   url:@"http://www.xzzai.com"
                                           description:@"笑话都在这里哦！"
->>>>>>> bca173d3c98eb5a66484c36620cbd634b8c5b0d2
                                             mediaType:SSPublishContentMediaTypeImage];
     [ShareSDK showShareActionSheet:nil
                          shareList:nil
@@ -137,17 +120,11 @@
                                 }
                                 else if (state == SSResponseStateFail)
                                 {
-<<<<<<< HEAD
-                                    NSLog(@"分享失败");
-                                }
-                            }];
-=======
                                     NSLog(@"分享失败 错误吗：= %d ，错误信息描述 = %@",[error errorCode],[error errorDescription]);
                                 }
                             }];
     
 //    [self getShareImage];
->>>>>>> bca173d3c98eb5a66484c36620cbd634b8c5b0d2
 }
 
 

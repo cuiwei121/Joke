@@ -60,7 +60,6 @@
 			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-<<<<<<< HEAD
 				<string>wb3112753426</string>
 			</array>
 		</dict>
@@ -80,13 +79,6 @@
 				<string>wx88234dc1246eb81b</string>
 			</array>
 		</dict>
-=======
-				<string>wx88234dc1246eb81b</string>
-				<string>wb3112753426</string>
-				<string>QQ41E132D6</string>
-			</array>
-		</dict>
->>>>>>> bca173d3c98eb5a66484c36620cbd634b8c5b0d2
 	</array>
 </dict>
 </plist>
