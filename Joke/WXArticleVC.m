@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavigationButton];
-    self.title = @"文章";
+    [self createTittleFont:@"文章"];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     // Do any additional setup after loading the view.
