@@ -55,6 +55,14 @@
 		2433E1761D767992000F4F45 /* PTSwimWolfBody.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2433E1731D767992000F4F45 /* PTSwimWolfBody.ttf */; };
 		2433E1791D767D64000F4F45 /* KaitiSC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2433E1781D767D64000F4F45 /* KaitiSC.ttf */; };
 		2433E17B1D767F40000F4F45 /* STHeitiSC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2433E17A1D767F40000F4F45 /* STHeitiSC.ttf */; };
+		2433E1861D76BB7F000F4F45 /* fenxiang_pengyouquan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2433E1801D76BB7F000F4F45 /* fenxiang_pengyouquan@2x.png */; };
+		2433E1871D76BB7F000F4F45 /* fenxiang_pengyouquan@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2433E1811D76BB7F000F4F45 /* fenxiang_pengyouquan@3x.png */; };
+		2433E1881D76BB7F000F4F45 /* fenxiang_QQ@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2433E1821D76BB7F000F4F45 /* fenxiang_QQ@2x.png */; };
+		2433E1891D76BB7F000F4F45 /* fenxiang_QQ@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2433E1831D76BB7F000F4F45 /* fenxiang_QQ@3x.png */; };
+		2433E18A1D76BB7F000F4F45 /* fenxiang_weixin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2433E1841D76BB7F000F4F45 /* fenxiang_weixin@2x.png */; };
+		2433E18B1D76BB7F000F4F45 /* fenxiang_weixin@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2433E1851D76BB7F000F4F45 /* fenxiang_weixin@3x.png */; };
+		2433E18F1D76BBEE000F4F45 /* ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2433E18E1D76BBEE000F4F45 /* ShareView.m */; };
+		2433E1921D76BC1B000F4F45 /* ShareHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2433E1911D76BC1B000F4F45 /* ShareHelper.m */; };
 		2468C45A1CB34CA2005A10BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2468C4591CB34CA2005A10BF /* main.m */; };
 		2468C45D1CB34CA2005A10BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2468C45C1CB34CA2005A10BF /* AppDelegate.m */; };
 		2468C4601CB34CA2005A10BF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2468C45F1CB34CA2005A10BF /* ViewController.m */; };
@@ -161,6 +169,16 @@
 		2433E1731D767992000F4F45 /* PTSwimWolfBody.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = PTSwimWolfBody.ttf; path = fontTTF/PTSwimWolfBody.ttf; sourceTree = "<group>"; };
 		2433E1781D767D64000F4F45 /* KaitiSC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = KaitiSC.ttf; path = fontTTF/KaitiSC.ttf; sourceTree = "<group>"; };
 		2433E17A1D767F40000F4F45 /* STHeitiSC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = STHeitiSC.ttf; path = fontTTF/STHeitiSC.ttf; sourceTree = "<group>"; };
+		2433E1801D76BB7F000F4F45 /* fenxiang_pengyouquan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fenxiang_pengyouquan@2x.png"; sourceTree = "<group>"; };
+		2433E1811D76BB7F000F4F45 /* fenxiang_pengyouquan@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fenxiang_pengyouquan@3x.png"; sourceTree = "<group>"; };
+		2433E1821D76BB7F000F4F45 /* fenxiang_QQ@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fenxiang_QQ@2x.png"; sourceTree = "<group>"; };
+		2433E1831D76BB7F000F4F45 /* fenxiang_QQ@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fenxiang_QQ@3x.png"; sourceTree = "<group>"; };
+		2433E1841D76BB7F000F4F45 /* fenxiang_weixin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fenxiang_weixin@2x.png"; sourceTree = "<group>"; };
+		2433E1851D76BB7F000F4F45 /* fenxiang_weixin@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fenxiang_weixin@3x.png"; sourceTree = "<group>"; };
+		2433E18D1D76BBEE000F4F45 /* ShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareView.h; sourceTree = "<group>"; };
+		2433E18E1D76BBEE000F4F45 /* ShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareView.m; sourceTree = "<group>"; };
+		2433E1901D76BC1B000F4F45 /* ShareHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareHelper.h; sourceTree = "<group>"; };
+		2433E1911D76BC1B000F4F45 /* ShareHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareHelper.m; sourceTree = "<group>"; };
 		2468C4551CB34CA2005A10BF /* Joke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Joke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2468C4591CB34CA2005A10BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2468C45B1CB34CA2005A10BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -375,6 +393,7 @@
 		241F170A1CB66B2F00EADF63 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				2433E18C1D76BBA8000F4F45 /* share */,
 				241F170B1CB66BFA00EADF63 /* UILabel+StringFrame.h */,
 				241F170C1CB66BFA00EADF63 /* UILabel+StringFrame.m */,
 			);
@@ -422,6 +441,30 @@
 				2433E1731D767992000F4F45 /* PTSwimWolfBody.ttf */,
 			);
 			name = fontTTF;
+			sourceTree = "<group>";
+		};
+		2433E17C1D76BAAF000F4F45 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				2433E1801D76BB7F000F4F45 /* fenxiang_pengyouquan@2x.png */,
+				2433E1811D76BB7F000F4F45 /* fenxiang_pengyouquan@3x.png */,
+				2433E1821D76BB7F000F4F45 /* fenxiang_QQ@2x.png */,
+				2433E1831D76BB7F000F4F45 /* fenxiang_QQ@3x.png */,
+				2433E1841D76BB7F000F4F45 /* fenxiang_weixin@2x.png */,
+				2433E1851D76BB7F000F4F45 /* fenxiang_weixin@3x.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		2433E18C1D76BBA8000F4F45 /* share */ = {
+			isa = PBXGroup;
+			children = (
+				2433E1901D76BC1B000F4F45 /* ShareHelper.h */,
+				2433E1911D76BC1B000F4F45 /* ShareHelper.m */,
+				2433E18D1D76BBEE000F4F45 /* ShareView.h */,
+				2433E18E1D76BBEE000F4F45 /* ShareView.m */,
+			);
+			path = share;
 			sourceTree = "<group>";
 		};
 		2468C44C1CB34CA2005A10BF = {
@@ -477,6 +520,7 @@
 		2468C4581CB34CA2005A10BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2433E17C1D76BAAF000F4F45 /* Resource */,
 				2433E1701D76792A000F4F45 /* fontTTF */,
 				242F96631CB3BF840053FDB8 /* WJAFNetAPIClient.h */,
 				242F96641CB3BF840053FDB8 /* WJAFNetAPIClient.m */,
@@ -638,6 +682,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24123FE01D07F65000E96B55 /* ShareSDKiPhoneDefaultShareViewUI.bundle in Resources */,
+				2433E1861D76BB7F000F4F45 /* fenxiang_pengyouquan@2x.png in Resources */,
 				24123FE21D07F65000E96B55 /* ShareSDKiPhoneSimpleShareViewUI.bundle in Resources */,
 				2433E1791D767D64000F4F45 /* KaitiSC.ttf in Resources */,
 				2433E1761D767992000F4F45 /* PTSwimWolfBody.ttf in Resources */,
@@ -645,12 +690,17 @@
 				2489274A1CB7926500638D68 /* h_star_se.png in Resources */,
 				2468C4681CB34CA2005A10BF /* LaunchScreen.storyboard in Resources */,
 				24123FDD1D07F65000E96B55 /* ShareSDKFlatShareViewUI.bundle in Resources */,
+				2433E18B1D76BB7F000F4F45 /* fenxiang_weixin@3x.png in Resources */,
 				2468C4651CB34CA2005A10BF /* Assets.xcassets in Resources */,
 				2433E17B1D767F40000F4F45 /* STHeitiSC.ttf in Resources */,
 				2468C4631CB34CA2005A10BF /* Main.storyboard in Resources */,
+				2433E1871D76BB7F000F4F45 /* fenxiang_pengyouquan@3x.png in Resources */,
 				24123FD81D07F65000E96B55 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				24123FDA1D07F65000E96B55 /* WeiboSDK.bundle in Resources */,
+				2433E18A1D76BB7F000F4F45 /* fenxiang_weixin@2x.png in Resources */,
 				2433E1751D767992000F4F45 /* HYWaWaZhuanJ.ttf in Resources */,
+				2433E1881D76BB7F000F4F45 /* fenxiang_QQ@2x.png in Resources */,
+				2433E1891D76BB7F000F4F45 /* fenxiang_QQ@3x.png in Resources */,
 				24123FD31D07F65000E96B55 /* ShareSDKLocalizable.strings in Resources */,
 				24123FD51D07F65000E96B55 /* Resource.bundle in Resources */,
 			);
@@ -728,6 +778,7 @@
 				248927481CB766CC00638D68 /* InterestImageTVCell.m in Sources */,
 				241F17031CB664A400EADF63 /* BaseTableViewCell.m in Sources */,
 				241638151CF45DF1007524EE /* WXArticleVC.m in Sources */,
+				2433E1921D76BC1B000F4F45 /* ShareHelper.m in Sources */,
 				24F933AC1CF6FCCE001DAE72 /* MyCollectionVC.m in Sources */,
 				242F96681CB3BF840053FDB8 /* WJConstants.m in Sources */,
 				2468C4601CB34CA2005A10BF /* ViewController.m in Sources */,
@@ -737,6 +788,7 @@
 				2468C45D1CB34CA2005A10BF /* AppDelegate.m in Sources */,
 				24F933A91CF6F50B001DAE72 /* MyAccountCell.m in Sources */,
 				24F933A61CF6F207001DAE72 /* MyAccountVC.m in Sources */,
+				2433E18F1D76BBEE000F4F45 /* ShareView.m in Sources */,
 				241F16FF1CB65C0900EADF63 /* JokeContentResponse.m in Sources */,
 				242F96671CB3BF840053FDB8 /* WJAFNetAPIClient.m in Sources */,
 				242F96621CB3BD150053FDB8 /* JBaseVC.m in Sources */,

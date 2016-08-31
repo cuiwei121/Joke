@@ -57,8 +57,9 @@
 /**
  *  搞笑文章的内容间距 字体大小
  */
-#define ContentFontSpace 18
+#define ContentFontSpace 10
 #define WXContentFontSpace 5
+#define contentFontSize 18
 
 /**
  *  灰色字体 和 灰色线的颜色

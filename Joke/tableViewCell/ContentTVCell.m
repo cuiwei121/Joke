@@ -8,6 +8,7 @@
 
 #import "ContentTVCell.h"
 #import <ShareSDK/ShareSDK.h>
+#import "ShareView.h"
 
 @implementation ContentTVCell
 
@@ -25,7 +26,7 @@
     if (self) {
         _contentLabel = [[UILabel alloc]init];
         [self.contentView addSubview:_contentLabel];
-        _contentLabel.font = cwFont(ContentFontSpace);
+        _contentLabel.font = cwFont(contentFontSize);
         _contentLabel.numberOfLines = 0;
         [_contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.contentView).with.insets(UIEdgeInsetsMake(5, 15, 45, 15));
@@ -73,6 +74,7 @@
         [shareButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         [_collectButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         
+        
     }
     return self;
 }
@@ -105,43 +107,65 @@
 }
 
 - (void)shareImage:(UIButton *)sender {
-    LOG(@"分享图片到好友");
+    
+//    
+    ShareView * _shareView = [ShareView new];
+    _shareView.url = @"http://www.xzzai.com";
+    _shareView.title = @"太搞笑了";
+    
+    _shareView.uiimage = [self getShareImage];
+    _shareView.content = @"搞笑~~~ ";
+    [_shareView showInWindowAnimated:YES];
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//    LOG(@"分享图片到好友");
     
 //    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"card"  ofType:@"png"];
     //构造分享内容
-    id<ISSContent> publishContent = [ShareSDK content:@"搞笑~~~"
-                                       defaultContent:@"默认分享内容测试，没内容时显示"
-                                                image:[ShareSDK pngImageWithImage:[self getShareImage]]
-                                                title:@"太搞笑了"
-                                                  url:@"http://www.xzzai.com"
-                                          description:@"笑话都在这里哦！"
-                                            mediaType:SSPublishContentMediaTypeImage];
-    [ShareSDK showShareActionSheet:nil
-                         shareList:nil
-                           content:publishContent
-                     statusBarTips:YES
-                       authOptions:nil
-                      shareOptions: nil
-                            result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
-                                if (state == SSResponseStateSuccess)
-                                {
-                                    NSLog(@"分享成功");
-                                }
-                                else if (state == SSResponseStateFail)
-                                {
-                                    NSLog(@"分享失败 错误吗：= %d ，错误信息描述 = %@",[error errorCode],[error errorDescription]);
-                                }
-                            }];
-    
+//    id<ISSContent> publishContent = [ShareSDK content:@"搞笑~~~"
+//                                       defaultContent:@"默认分享内容测试，没内容时显示"
+//                                                image:[ShareSDK pngImageWithImage:[self getShareImage]]
+//                                                title:@"太搞笑了"
+//                                                  url:@"http://www.xzzai.com"
+//                                          description:@"笑话都在这里哦！"
+//                                            mediaType:SSPublishContentMediaTypeImage];
+//    [ShareSDK showShareActionSheet:nil
+//                         shareList:nil
+//                           content:publishContent
+//                     statusBarTips:YES
+//                       authOptions:nil
+//                      shareOptions: nil
+//                            result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+//                                if (state == SSResponseStateSuccess)
+//                                {
+//                                    NSLog(@"分享成功");
+//                                }
+//                                else if (state == SSResponseStateFail)
+//                                {
+//                                    NSLog(@"分享失败 错误吗：= %d ，错误信息描述 = %@",[error errorCode],[error errorDescription]);
+//                                }
+//                            }];
+//    
 //    [self getShareImage];
 }
 
 
 - (CGFloat)returnCellHeight {
     
-    CGSize size = [self.contentLabel boundingRectWithSize:CGSizeMake((SCREEN_WIDTH - 30)/2, 0)];
-    
-    CGFloat h = size.height + 60;
+    CGSize size = [self.contentLabel boundingRectWithSize:CGSizeMake((SCREEN_WIDTH - 30), 0)];
+    //字体高度，字体行数 h总高度
+    CGFloat h = size.height + 80 + size.height/(contentFontSize + 6)*ContentFontSpace;
     return h;
 }
 
@@ -158,15 +182,17 @@
 //    [viewBG addSubview:starImageV];
     
     //文本的长度
-    CGSize size = [self.contentLabel boundingRectWithSize:CGSizeMake((SCREEN_WIDTH - 30)/2, 0)];
-    if (size.height > SCREEN_HEIGHT - 40) {
-        viewBG.frame = CGRectMake(0, 0, SCREEN_WIDTH, size.height + 40);
+    CGSize size = [self.contentLabel boundingRectWithSize:CGSizeMake((SCREEN_WIDTH - 30), 0)];
+    //字体高度和间隔的高度 20字体的大小
+     CGFloat h = size.height + size.height/(20)*ContentFontSpace;
+    if (h> SCREEN_HEIGHT - 40) {
+        viewBG.frame = CGRectMake(0, 0, SCREEN_WIDTH, h + 40);
     }
     
     UILabel * shareLabel = [[UILabel alloc]init];
-    shareLabel.frame = CGRectMake(15, 15, SCREEN_WIDTH - 30, size.height);
+    shareLabel.frame = CGRectMake(15, 15, SCREEN_WIDTH - 30, h);
     shareLabel.text =[NSString stringWithFormat:@"%@",_contentLabel.text];
-    shareLabel.font = TitleFont;// cwFont(ContentFontSpace);
+    shareLabel.font = TitleFont;// cwFont(contentFontSize);
     shareLabel.numberOfLines = 0;
     [shareLabel spaceLabel:ContentFontSpace];
     [viewBG addSubview:shareLabel];
