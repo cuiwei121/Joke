@@ -50,8 +50,11 @@
 		242F96681CB3BF840053FDB8 /* WJConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F96661CB3BF840053FDB8 /* WJConstants.m */; };
 		242F966C1CB3BFF00053FDB8 /* WJDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F966B1CB3BFF00053FDB8 /* WJDataRequest.m */; };
 		242F96701CB3C02D0053FDB8 /* WJBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F966F1CB3C02D0053FDB8 /* WJBaseModel.m */; };
-		2437348D1CF6CAA1004FC436 /* HYWaWaZhuanJ.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24511C2E1CF6B33400B05DD6 /* HYWaWaZhuanJ.ttf */; };
-		2437348F1CF6CF59004FC436 /* PTSwimWolfBody.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2437348E1CF6CF41004FC436 /* PTSwimWolfBody.ttf */; };
+		2433E1741D767992000F4F45 /* DaLiangFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2433E1711D767992000F4F45 /* DaLiangFont.ttf */; };
+		2433E1751D767992000F4F45 /* HYWaWaZhuanJ.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2433E1721D767992000F4F45 /* HYWaWaZhuanJ.ttf */; };
+		2433E1761D767992000F4F45 /* PTSwimWolfBody.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2433E1731D767992000F4F45 /* PTSwimWolfBody.ttf */; };
+		2433E1791D767D64000F4F45 /* KaitiSC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2433E1781D767D64000F4F45 /* KaitiSC.ttf */; };
+		2433E17B1D767F40000F4F45 /* STHeitiSC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2433E17A1D767F40000F4F45 /* STHeitiSC.ttf */; };
 		2468C45A1CB34CA2005A10BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2468C4591CB34CA2005A10BF /* main.m */; };
 		2468C45D1CB34CA2005A10BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2468C45C1CB34CA2005A10BF /* AppDelegate.m */; };
 		2468C4601CB34CA2005A10BF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2468C45F1CB34CA2005A10BF /* ViewController.m */; };
@@ -153,8 +156,11 @@
 		242F966B1CB3BFF00053FDB8 /* WJDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJDataRequest.m; sourceTree = "<group>"; };
 		242F966E1CB3C02D0053FDB8 /* WJBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJBaseModel.h; sourceTree = "<group>"; };
 		242F966F1CB3C02D0053FDB8 /* WJBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJBaseModel.m; sourceTree = "<group>"; };
-		2437348E1CF6CF41004FC436 /* PTSwimWolfBody.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PTSwimWolfBody.ttf; sourceTree = "<group>"; };
-		24511C2E1CF6B33400B05DD6 /* HYWaWaZhuanJ.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HYWaWaZhuanJ.ttf; sourceTree = "<group>"; };
+		2433E1711D767992000F4F45 /* DaLiangFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = DaLiangFont.ttf; path = fontTTF/DaLiangFont.ttf; sourceTree = "<group>"; };
+		2433E1721D767992000F4F45 /* HYWaWaZhuanJ.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = HYWaWaZhuanJ.ttf; path = fontTTF/HYWaWaZhuanJ.ttf; sourceTree = "<group>"; };
+		2433E1731D767992000F4F45 /* PTSwimWolfBody.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = PTSwimWolfBody.ttf; path = fontTTF/PTSwimWolfBody.ttf; sourceTree = "<group>"; };
+		2433E1781D767D64000F4F45 /* KaitiSC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = KaitiSC.ttf; path = fontTTF/KaitiSC.ttf; sourceTree = "<group>"; };
+		2433E17A1D767F40000F4F45 /* STHeitiSC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = STHeitiSC.ttf; path = fontTTF/STHeitiSC.ttf; sourceTree = "<group>"; };
 		2468C4551CB34CA2005A10BF /* Joke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Joke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2468C4591CB34CA2005A10BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2468C45B1CB34CA2005A10BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -406,6 +412,18 @@
 			path = WJResponse;
 			sourceTree = "<group>";
 		};
+		2433E1701D76792A000F4F45 /* fontTTF */ = {
+			isa = PBXGroup;
+			children = (
+				2433E17A1D767F40000F4F45 /* STHeitiSC.ttf */,
+				2433E1781D767D64000F4F45 /* KaitiSC.ttf */,
+				2433E1711D767992000F4F45 /* DaLiangFont.ttf */,
+				2433E1721D767992000F4F45 /* HYWaWaZhuanJ.ttf */,
+				2433E1731D767992000F4F45 /* PTSwimWolfBody.ttf */,
+			);
+			name = fontTTF;
+			sourceTree = "<group>";
+		};
 		2468C44C1CB34CA2005A10BF = {
 			isa = PBXGroup;
 			children = (
@@ -459,14 +477,13 @@
 		2468C4581CB34CA2005A10BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2433E1701D76792A000F4F45 /* fontTTF */,
 				242F96631CB3BF840053FDB8 /* WJAFNetAPIClient.h */,
 				242F96641CB3BF840053FDB8 /* WJAFNetAPIClient.m */,
 				242F96651CB3BF840053FDB8 /* WJConstants.h */,
 				242F96661CB3BF840053FDB8 /* WJConstants.m */,
 				2468C4591CB34CA2005A10BF /* main.m */,
 				242F965E1CB3BB4E0053FDB8 /* Joke_Prefix.pch */,
-				24511C2E1CF6B33400B05DD6 /* HYWaWaZhuanJ.ttf */,
-				2437348E1CF6CF41004FC436 /* PTSwimWolfBody.ttf */,
 				2468C4691CB34CA2005A10BF /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -622,15 +639,18 @@
 			files = (
 				24123FE01D07F65000E96B55 /* ShareSDKiPhoneDefaultShareViewUI.bundle in Resources */,
 				24123FE21D07F65000E96B55 /* ShareSDKiPhoneSimpleShareViewUI.bundle in Resources */,
-				2437348F1CF6CF59004FC436 /* PTSwimWolfBody.ttf in Resources */,
-				2437348D1CF6CAA1004FC436 /* HYWaWaZhuanJ.ttf in Resources */,
+				2433E1791D767D64000F4F45 /* KaitiSC.ttf in Resources */,
+				2433E1761D767992000F4F45 /* PTSwimWolfBody.ttf in Resources */,
+				2433E1741D767992000F4F45 /* DaLiangFont.ttf in Resources */,
 				2489274A1CB7926500638D68 /* h_star_se.png in Resources */,
 				2468C4681CB34CA2005A10BF /* LaunchScreen.storyboard in Resources */,
 				24123FDD1D07F65000E96B55 /* ShareSDKFlatShareViewUI.bundle in Resources */,
 				2468C4651CB34CA2005A10BF /* Assets.xcassets in Resources */,
+				2433E17B1D767F40000F4F45 /* STHeitiSC.ttf in Resources */,
 				2468C4631CB34CA2005A10BF /* Main.storyboard in Resources */,
 				24123FD81D07F65000E96B55 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				24123FDA1D07F65000E96B55 /* WeiboSDK.bundle in Resources */,
+				2433E1751D767992000F4F45 /* HYWaWaZhuanJ.ttf in Resources */,
 				24123FD31D07F65000E96B55 /* ShareSDKLocalizable.strings in Resources */,
 				24123FD51D07F65000E96B55 /* Resource.bundle in Resources */,
 			);

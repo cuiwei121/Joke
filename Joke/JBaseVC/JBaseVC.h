@@ -25,6 +25,11 @@
 - (void)createTitleView;
 
 /**
+ *创建自定义Title
+ */
+- (void)createTittleFont:(NSString *)title;
+
+/**
  * 按钮的点击事件
  */
 -(void)change:(UISegmentedControl *)Seg;

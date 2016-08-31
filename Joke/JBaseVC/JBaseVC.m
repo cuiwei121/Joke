@@ -19,7 +19,6 @@
        self.view.backgroundColor = [UIColor whiteColor];
     
     
-    
 //    self.bannerView = [[GADBannerView alloc]init];
 ////    self.bannerView.backgroundColor = [UIColor greenColor];
 //    self.bannerView.frame = CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50);
@@ -65,7 +64,7 @@
     self.segment.backgroundColor = [UIColor whiteColor];
     
     //[UIColor greenColor],UITextAttributeTextShadowColor
-    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, cwFont(18),UITextAttributeFont,[UIColor blackColor],UITextAttributeTextShadowColor ,nil];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, TitleFont,UITextAttributeFont,[UIColor blackColor],UITextAttributeTextShadowColor ,nil];
     [self.segment setTitleTextAttributes:dic forState:UIControlStateNormal];
 
     
@@ -78,6 +77,7 @@
     UIButton * myButton = [[UIButton alloc]init];
     myButton.frame = CGRectMake(0, 0, 40, 40);
     [myButton setTitle:@"我的" forState:UIControlStateNormal];
+    myButton.titleLabel.font = TitleFont;
     UIBarButtonItem *myBarButton = [[UIBarButtonItem alloc]initWithCustomView:myButton];
     [self.navigationItem setRightBarButtonItem:myBarButton];
     [myButton addTarget:self action:@selector(myAccountClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -85,6 +85,21 @@
 //    myButton.backgroundColor = [UIColor orangeColor];
 }
 
+
+//自定义字体格式
+- (void)createTittleFont:(NSString *)title {
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
+    
+    titleLabel.text = title;
+    titleLabel.font = TitleFont;
+    
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+//    titleLabel.textColor = [UIColor redColor];
+    
+    self.navigationItem.titleView = titleLabel;
+    
+}
 
 -(void)change:(UISegmentedControl *)Seg{
 }
@@ -101,6 +116,7 @@
     UIButton * backButton = [[UIButton alloc]init];
     backButton.frame = CGRectMake(0, 0, 50, 50);
     [backButton setTitle:@"返回" forState:UIControlStateNormal];
+    backButton.titleLabel.font = TitleFont;
     
     UIBarButtonItem *myBarButton = [[UIBarButtonItem alloc]initWithCustomView:backButton];
     [self.navigationItem setLeftBarButtonItem:myBarButton];

@@ -20,6 +20,7 @@
 
 @interface MyAccountVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *myAccountTableV;
+@property (nonatomic, strong) NSArray *cellTitleArray;
 
 @end
 
@@ -28,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavigationButton];
-    self.title = @"我的";
+    [self createTittleFont:@"我的"];
     
     self.myAccountTableV.backgroundColor = [UIColor lightGrayColor];
 }
@@ -49,6 +50,13 @@
 }
 
 
+- (NSArray *)cellTitleArray {
+    if (!_cellTitleArray) {
+        _cellTitleArray = @[@"我的收藏",@"评分",@"当前版本"];
+    }
+    return  _cellTitleArray;
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 3;
@@ -67,7 +75,7 @@
             cell = [[MyAccountCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
     
-        cell.titleLabel.text = @"我的收藏";
+        cell.titleLabel.text = [self.cellTitleArray objectAtIndex:indexPath.row];
         //setImageWithURL:dataM.url];
         //    cell.textLabel.text = @"q213134";
         return cell;

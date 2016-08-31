@@ -274,7 +274,7 @@
                 self.dataArray = self.contentArray;
                 [self.jokeTableView reloadData];
             }
-            LOG(@"response = %@，，，error = %@",response,error);
+//            LOG(@"response = %@，，，error = %@",response,error);
             
         }
 
@@ -304,15 +304,17 @@
 
 - (void)loadWeiXinData:(NSString *)footOrHeader {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     NSString *param =nil;
     if ([footOrHeader isEqualToString:@"1"]) {
-        param = [NSString stringWithFormat:@"%d",self.numberWX];
+        self.numberWX += 1;
+        param = [NSString stringWithFormat:@"%d",self.numberWX ];
     }else {
         param = @"1";
     }
     
     
-    [WJDataRequest getWeiXin:param  compeletion:^(WeiXinResponse *response, NSError *error) {
+    [WJDataRequest getWeiXin:param compeletion:^(WeiXinResponse *response, NSError *error) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
         if (error || response == nil) {
@@ -323,7 +325,6 @@
         
         if (resultM.list) {
             if ([footOrHeader isEqualToString:@"1"]) {
-                _numberWX ++;
                 NSMutableArray *m = [NSMutableArray arrayWithArray:self.articleArray];
                 if (resultM.list.count > 0) {
                     for (id temp in resultM.list) {
@@ -335,7 +336,6 @@
                     self.articleArray = m;
                 }
             }else {
-//                _numberWX ++;
                 NSMutableArray *m = [NSMutableArray arrayWithArray:self.articleArray];
                 if (resultM.list.count > 0) {
                     for (id temp in resultM.list) {
@@ -346,6 +346,7 @@
                     }
                     self.articleArray = m;
                 }
+                
             }
             
             if(self.segment.selectedSegmentIndex == 1) {

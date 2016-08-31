@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavigationButton];
-    self.title = @"我的收藏";
+    [self createTittleFont:@"我的收藏"];
     
     
     

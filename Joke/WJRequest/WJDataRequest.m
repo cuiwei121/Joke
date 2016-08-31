@@ -98,7 +98,7 @@
 + (NSURLSessionDataTask *)getWeiXin:(NSString *)params compeletion:(void(^)(WeiXinResponse*response, NSError *error))block {
     
     NSMutableDictionary *param = [@{@"pno":params,
-                                    @"ps":@"2",
+                                    @"ps":@"10",
                                     @"dtype":@"json",
                                     @"key":@"d5ed5acf5657955629891a4e597d6227"}mutableCopy];
  
@@ -106,10 +106,10 @@
     
     return [[WJAFNetAPIClient initClient:@"http://v.juhe.cn/"]WJGET:@"weixin/query" parameters:param compeletion:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
-            //LOG(@"微信  经文 ： param =  %@ \n response = %@",param,responseObject);
+//            LOG(@"微信  经文 ： param =  %@ \n response = %@",param,responseObject);
             NSMutableDictionary *resultDict = responseObject;
             WeiXinResponse *messageDetail = [[WeiXinResponse alloc] initWithDictionary:resultDict];
-             LOG(@"微信  经文 ： reason =  %@  @",messageDetail.reason);
+//             LOG(@"微信  经文 ： reason =  %@  @",messageDetail.reason);
             block(messageDetail, nil);
         }else {
             block(nil, error);

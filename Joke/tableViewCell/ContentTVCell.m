@@ -39,9 +39,10 @@
         [self.contentView addSubview:shareButton];
 
         [shareButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(self.contentView).offset(-5);
-            make.right.equalTo(self.contentView).offset(-80);
+            make.bottom.equalTo(self.contentView).offset(-25);
+            make.right.equalTo(self.contentView).offset(-85);
             make.width.height.equalTo(@(50));
+            make.height.equalTo(@(30));
         }];
         //收藏
         _collectButton = [[UIButton alloc]init];
@@ -51,15 +52,22 @@
  
         [self.contentView addSubview:_collectButton];
         [_collectButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(self.contentView).offset(-5);
+            make.bottom.equalTo(self.contentView).offset(-25);
             make.right.equalTo(self.contentView).offset(-20);
-            make.height.equalTo(@(50));
+            make.height.equalTo(@(30));
             make.width.equalTo(@(60));
         }];
         
  
-        shareButton.titleLabel.font = cwFont(18);
-        _collectButton.titleLabel.font = cwFont(18);
+        shareButton.titleLabel.font = TitleFont;
+        shareButton.layer.cornerRadius = 5;
+        shareButton.layer.borderColor = [UIColor orangeColor].CGColor;
+        shareButton.layer.borderWidth = 1;
+        
+        _collectButton.titleLabel.font = TitleFont;
+        _collectButton.layer.cornerRadius = 5;
+        _collectButton.layer.borderColor = [UIColor orangeColor].CGColor;
+        _collectButton.layer.borderWidth = 1;
 
         
         [shareButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
@@ -158,7 +166,7 @@
     UILabel * shareLabel = [[UILabel alloc]init];
     shareLabel.frame = CGRectMake(15, 15, SCREEN_WIDTH - 30, size.height);
     shareLabel.text =[NSString stringWithFormat:@"%@",_contentLabel.text];
-    shareLabel.font = cwFont(ContentFontSpace);
+    shareLabel.font = TitleFont;// cwFont(ContentFontSpace);
     shareLabel.numberOfLines = 0;
     [shareLabel spaceLabel:ContentFontSpace];
     [viewBG addSubview:shareLabel];
