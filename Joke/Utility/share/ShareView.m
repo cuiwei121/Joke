@@ -86,7 +86,7 @@
         [_btnTitle addObject:@"朋友圈"];
         [_btnImage addObject:@"fenxiang_pengyouquan"];
         [_btnTitle addObject:@"微信收藏"];
-        [_btnImage addObject:@"fenxiang_pengyouquan"];
+        [_btnImage addObject:@"fenxiang_shoucang"];
     }
     //判断QQ
     if ([QQApiInterface isQQInstalled]) {

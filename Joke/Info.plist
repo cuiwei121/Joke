@@ -33,9 +33,7 @@
 	<array>
 		<string>HYWaWaZhuanJ.ttf</string>
 		<string>PTSwimWolfBody.ttf</string>
-		<string>DaLiangFont.ttf</string>
 		<string>KaitiSC.ttf</string>
-		<string>STHeitiSC.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

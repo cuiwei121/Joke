@@ -40,12 +40,10 @@
 
 /**
  *内容字体格式
- * Zapfino
  * HYWaWaZhuanJ //娃娃篆体
  * -- 或 ??????®¨°È®™?°Í??? //游狼锋芒简体
- *大梁体   //大梁体，毛笔字体
  *Kaiti SC //田氏保钓体
- *STHeiti SC //汉堡包手机字体
+ 
  */
 #define cwFont(x)  [UIFont fontWithName:@"Kaiti SC" size:x] //[UIFont systemFontOfSize:x]
 
