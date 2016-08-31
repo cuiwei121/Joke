@@ -137,8 +137,7 @@
     return h;
 }
 
-
-
+//8month
 
 //分享的图片的宽高
 - (UIImage *)getShareImage {
@@ -152,8 +151,8 @@
     
     //文本的长度
     CGSize size = [self.contentLabel boundingRectWithSize:CGSizeMake((SCREEN_WIDTH - 30)/2, 0)];
-    if (size.height > SCREEN_HEIGHT) {
-        viewBG.frame = CGRectMake(0, 0, SCREEN_WIDTH, size.height);
+    if (size.height > SCREEN_HEIGHT - 40) {
+        viewBG.frame = CGRectMake(0, 0, SCREEN_WIDTH, size.height + 40);
     }
     
     UILabel * shareLabel = [[UILabel alloc]init];
@@ -161,8 +160,10 @@
     shareLabel.text =[NSString stringWithFormat:@"%@",_contentLabel.text];
     shareLabel.font = cwFont(ContentFontSpace);
     shareLabel.numberOfLines = 0;
+    [shareLabel spaceLabel:ContentFontSpace];
     [viewBG addSubview:shareLabel];
     
+ 
     
     viewBG.backgroundColor = [UIColor lightGrayColor];
     shareLabel.backgroundColor = [UIColor clearColor];

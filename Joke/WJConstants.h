@@ -44,12 +44,13 @@
  * HYWaWaZhuanJ //娃娃篆体
  * -- 或 ??????®¨°È®™?°Í??? //游狼锋芒简体
  */
-#define cwFont(x) [UIFont fontWithName:@"??????®¨°È®™?°Í???" size:x]
+#define cwFont(x) [UIFont systemFontOfSize:x]//[UIFont fontWithName:@"HYWaWaZhuanJ" size:x]
 
 /**
  *  搞笑文章的内容间距 字体大小
  */
 #define ContentFontSpace 18
+#define WXContentFontSpace 5
 
 /**
  *  灰色字体 和 灰色线的颜色

@@ -12,5 +12,5 @@
 - (CGSize)boundingRectWithSize:(CGSize)size;
 
 //设置行间距
-- (void)spaceLabel ;
+- (void)spaceLabel:(NSInteger)spaceSize ;
 @end

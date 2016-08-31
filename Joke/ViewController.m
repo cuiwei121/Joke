@@ -162,7 +162,7 @@
         }
         JokeContentDataModel *dataM = [self.dataArray objectAtIndex:indexPath.row];
         cell.contentLabel.text = dataM.content;
-        [cell.contentLabel spaceLabel];
+        [cell.contentLabel spaceLabel:ContentFontSpace];
         
         
         //    cell.textLabel.text = @"q213134";
@@ -179,8 +179,8 @@
         
         WeiXinListModel *dataM = [self.dataArray objectAtIndex:indexPath.row];
         cell.wxContentLabel.text = dataM.title;
+        [cell.wxContentLabel spaceLabel:WXContentFontSpace];
         NSURL *mUrl = [NSURL URLWithString:dataM.firstImg];
-        
         
         //使用的是afnetworking中的图片下载
         __block WXArticleCell *weakCell = cell;

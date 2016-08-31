@@ -79,7 +79,7 @@
     NSString *dataM = [self.dataArray objectAtIndex:indexPath.row];
     cell.contentLabel.text = dataM;
     cell.collectButton.selected = YES;
-    [cell.contentLabel spaceLabel];
+    [cell.contentLabel spaceLabel:ContentFontSpace];
     
     //setImageWithURL:dataM.url];
     //    cell.textLabel.text = @"q213134";

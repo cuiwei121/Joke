@@ -27,14 +27,27 @@
 
 
 
-- (void)spaceLabel {
+- (void)spaceLabel:(NSInteger)spaceSize {
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self.text];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     
-    [paragraphStyle setLineSpacing:ContentFontSpace];//调整行间距
+    [paragraphStyle setLineSpacing:spaceSize];//调整行间距
     
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [self.text length])];
     self.attributedText = attributedString;
+    
+    
+    /*
+     
+     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+     paragraphStyle.lineSpacing = 5;// 字体的行间距
+     NSDictionary *attributes = @{
+     NSFontAttributeName:[UIFont systemFontOfSize:14],
+     NSParagraphStyleAttributeName:paragraphStyle
+     };
+     shareLabel.attributedText = [[NSAttributedString alloc] initWithString:codeTextString attributes:attributes];
+     
+     */
 }
 
 
