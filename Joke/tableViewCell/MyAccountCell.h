@@ -8,11 +8,13 @@
 
 #import "BaseTableViewCell.h"
 
-@interface MyAccountCell : BaseTableViewCell
+@interface MyAccountCell : UITableViewCell
 @property (nonatomic, strong) UILabel  *titleLabel;
-
 @property (nonatomic, strong) UIImageView *arrowImageV;
-
 @property (nonatomic, strong) UIView *lineView;
-
+@end
+@interface MyAccountVersionCell : UITableViewCell
+@property (nonatomic, strong) UILabel  *titleLabel;
+@property (nonatomic, strong) UIView *lineView;
+@property (nonatomic, strong) UILabel  *summeryabel;
 @end

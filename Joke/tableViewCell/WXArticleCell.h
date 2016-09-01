@@ -11,5 +11,4 @@
 @interface WXArticleCell : BaseTableViewCell
 @property (nonatomic, strong) UIImageView *wxImageView;
 @property (nonatomic, strong) UILabel *wxContentLabel;
-
 @end

@@ -17,7 +17,7 @@
 #import "MyAccountVC.h"
 #import "MyAccountCell.h"
 #import "MyCollectionVC.h"
-
+#import "XZColor.h"
 @interface MyAccountVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *myAccountTableV;
 @property (nonatomic, strong) NSArray *cellTitleArray;
@@ -31,7 +31,7 @@
     [self setNavigationButton];
     [self createTittleFont:@"我的"];
     
-    self.myAccountTableV.backgroundColor = [UIColor lightGrayColor];
+    self.myAccountTableV.backgroundColor = [XZColor backgroudColor];
 }
 
 - (UITableView *)myAccountTableV {
@@ -63,26 +63,30 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-     
     return 50;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-        NSString *identifier = @"MyAccountCell";
+    NSString *identifier = @"MyAccountCell";
+    if (indexPath.row == 2) {
+        identifier = @"versionCell";
+        MyAccountVersionCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (!cell) {
+            cell = [[MyAccountVersionCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        cell.titleLabel.text = [self.cellTitleArray objectAtIndex:indexPath.row];
+        cell.summeryabel.text = [NSString stringWithFormat:@"当前版本v%@", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];;
+        return cell;
+    }else{
         MyAccountCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         if (!cell) {
             cell = [[MyAccountCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
-    
         cell.titleLabel.text = [self.cellTitleArray objectAtIndex:indexPath.row];
-        //setImageWithURL:dataM.url];
-        //    cell.textLabel.text = @"q213134";
         return cell;
-        
-    
+    }
 }
-
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {

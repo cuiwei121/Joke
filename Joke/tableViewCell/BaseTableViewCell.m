@@ -7,7 +7,7 @@
 //
 
 #import "BaseTableViewCell.h"
-
+#import "XZColor.h"
 @implementation BaseTableViewCell
 
 - (void)awakeFromNib {
@@ -24,14 +24,20 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.contentView.backgroundColor = cwGreyColor;
+        self.contentView.backgroundColor = [XZColor backgroudColor];
         
         _bgView= [[UIView alloc]init];
         [self.contentView addSubview:_bgView];
+        
+        _bgView.layer.cornerRadius = 3;
+        _bgView.layer.shadowOffset = CGSizeMake(0, 0);
+        _bgView.layer.shadowOpacity = 0.35;
+        _bgView.layer.shadowRadius = 3.0;
+        _bgView.layer.borderWidth = 0.5/[[UIScreen mainScreen]scale];
+        _bgView.layer.borderColor = [XZColor XZgrey52].CGColor;
+        
         _bgView.backgroundColor = [UIColor whiteColor];
-        _bgView.layer.cornerRadius = 5.0f;
-        _bgView.layer.borderColor = [UIColor grayColor].CGColor;
-        _bgView.layer.borderWidth = 1.0f;
+        
         [_bgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.contentView).with.insets(UIEdgeInsetsMake(5, 10, 5, 10));
         }];
@@ -39,9 +45,4 @@
     }
     return self;
 }
-
-- (CGFloat)returnCellHeight {
-    return 44;
-}
-
 @end

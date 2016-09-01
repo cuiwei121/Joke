@@ -10,8 +10,6 @@
 
 @interface InterestImageTVCell : BaseTableViewCell
 @property (nonatomic, strong) UIImageView *interestImageV;
-
 @property (nonatomic, strong) UILabel *contentLabel;
-
 @property (nonatomic, strong) UIButton * selectButton;
 @end

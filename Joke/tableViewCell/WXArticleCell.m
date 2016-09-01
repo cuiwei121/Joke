@@ -7,17 +7,8 @@
 //
 
 #import "WXArticleCell.h"
-
+#import "XZColor.h"
 @implementation WXArticleCell
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
 -  (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -26,28 +17,27 @@
     }
     return self;
 }
-
-
 - (void)createView {
     _wxImageView = [[UIImageView alloc]init];
+    _wxImageView.layer.cornerRadius = 3;
     [self.contentView addSubview:_wxImageView];
-    _wxImageView.frame = CGRectMake(15, 10, 100, 80);
-    
+    [_wxImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView).offset(15);
+        make.top.equalTo(self.contentView).offset(10);
+        make.width.equalTo(@100);
+        make.height.equalTo(@80);
+    }];
+
     _wxContentLabel = [[UILabel alloc]init];
-    [self.contentView addSubview:_wxContentLabel];
     _wxContentLabel.font = cwFont(18);
-    _wxContentLabel.numberOfLines = 0;
+    _wxContentLabel.numberOfLines = 2;
     _wxContentLabel.frame = CGRectMake(120, 10, SCREEN_WIDTH - 135, 80);
-    
-    
-    _wxImageView.image = [UIImage imageNamed:@"h_star_se"];
+    _wxContentLabel.textColor = [XZColor XZgrey85];
+    _wxContentLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     _wxContentLabel.text = @"时间的路人c";
+   [self.contentView addSubview:_wxContentLabel];
 }
-
-
 - (CGFloat)returnCellHeight {
     return 100;
 }
-
-
 @end

@@ -15,6 +15,7 @@
 #import "WXArticleCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "MyAccountVC.h"
+#import "XZColor.h"
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *jokeTableView;
@@ -48,7 +49,7 @@
     self.numberWX = 1;
     self.numberJoke = 1;
     
-    self.jokeTableView.backgroundColor = [UIColor whiteColor];
+    self.jokeTableView.backgroundColor = [XZColor backgroudColor];
 //    [self loadWeiXinData:@"0"];
     [self loadResultData:@"0"];
     
@@ -87,10 +88,7 @@
             self.dataArray = self.articleArray;
             [self loadWeiXinData:@"0"];
             break;
-            
-            
         case 2:
-            
             self.dataArray = self.interestImageArray;
             [self loadImageData];
             break;
@@ -147,9 +145,7 @@
      }else {
          InterestImageTVCell *cell=(InterestImageTVCell*)[self tableView:self.jokeTableView cellForRowAtIndexPath:indexPath];
          return [cell returnCellHeight];
-        
      }
-
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -159,13 +155,11 @@
         ContentTVCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         if (!cell) {
             cell = [[ContentTVCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            
         }
         JokeContentDataModel *dataM = [self.dataArray objectAtIndex:indexPath.row];
         cell.contentLabel.text = dataM.content;
         [cell.contentLabel spaceLabel:ContentFontSpace];
-        
-        
-        //    cell.textLabel.text = @"q213134";
         return cell;
 
     }else  if(self.segment.selectedSegmentIndex == 1) {
@@ -175,7 +169,6 @@
         if (!cell) {
             cell = [[WXArticleCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
-        
         
         WeiXinListModel *dataM = [self.dataArray objectAtIndex:indexPath.row];
         cell.wxContentLabel.text = dataM.title;
@@ -193,8 +186,6 @@
         }];
         
         return cell;
-        
-
     }else {
         NSString *identifier = @"interestImageCell";
         InterestImageTVCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
@@ -206,9 +197,6 @@
         
         NSURL *mUrl = [NSURL URLWithString:dataM.url];
         [cell.interestImageV sd_setImageWithURL:mUrl placeholderImage:[UIImage imageNamed:@"h_star_se"]];
-        
-        //setImageWithURL:dataM.url];
-        //    cell.textLabel.text = @"q213134";
         return cell;
 
     }

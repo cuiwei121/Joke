@@ -7,6 +7,7 @@
 //
 @import GoogleMobileAds;
 #import "JBaseVC.h"
+#import "XZColor.h"
 
 @interface JBaseVC ()
 
@@ -16,8 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-       self.view.backgroundColor = [UIColor whiteColor];
-    
+       self.view.backgroundColor = [XZColor backgroudColor];
     
 //    self.bannerView = [[GADBannerView alloc]init];
 ////    self.bannerView.backgroundColor = [UIColor greenColor];
@@ -47,42 +47,32 @@
 
 
 - (void)createTitleView {
-    UIView * titleView = [[UIView alloc]init];
-    titleView.frame = CGRectMake(0, 0, 100, 30);
-    titleView.backgroundColor = [UIColor orangeColor];
     
     NSArray *arr = @[@"笑话",@"精文"];
     self.segment = [[UISegmentedControl alloc]initWithItems:arr];
-    //        [segment setApportionsSegmentWidthsByContent:YES];
+//  [segment setApportionsSegmentWidthsByContent:YES];
     //在没有设置[segment setApportionsSegmentWidthsByContent:YES]时，每个的宽度按segment的宽度平分
-    self.segment.frame = CGRectMake(0,0, 100, 30);
+    self.segment.frame = CGRectMake(0,0, 130, 30);
     self.segment.selectedSegmentIndex = 0;
-//    [self.segment setTintColor:[UIColor greenColor]];
-    //    self.segment.layer.cornerRadius = 40;
     [self.segment addTarget:self action:@selector(change:) forControlEvents:UIControlEventValueChanged];
-    [titleView addSubview:self.segment];
     self.segment.backgroundColor = [UIColor whiteColor];
     
     //[UIColor greenColor],UITextAttributeTextShadowColor
-    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, TitleFont,UITextAttributeFont,[UIColor blackColor],UITextAttributeTextShadowColor ,nil];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:TitleFont,NSFontAttributeName,nil];
     [self.segment setTitleTextAttributes:dic forState:UIControlStateNormal];
+    self.segment.tintColor = [XZColor XZBlue_0_122_255];
+    
+    self.navigationItem.titleView = self.segment;
 
-    
-    self.navigationItem.titleView = titleView;
-    
-    
-    
-    
     //添加我的按钮
     UIButton * myButton = [[UIButton alloc]init];
     myButton.frame = CGRectMake(0, 0, 40, 40);
     [myButton setTitle:@"我的" forState:UIControlStateNormal];
+    [myButton setTitleColor:[XZColor XZBlue_0_122_255] forState:UIControlStateNormal];
     myButton.titleLabel.font = TitleFont;
     UIBarButtonItem *myBarButton = [[UIBarButtonItem alloc]initWithCustomView:myButton];
     [self.navigationItem setRightBarButtonItem:myBarButton];
     [myButton addTarget:self action:@selector(myAccountClick:) forControlEvents:UIControlEventTouchUpInside];
-    [myButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-//    myButton.backgroundColor = [UIColor orangeColor];
 }
 
 
@@ -108,7 +98,6 @@
 
 }
 
-
 /**
  * 设置tabbar  navigationItem
  */
@@ -116,14 +105,13 @@
     UIButton * backButton = [[UIButton alloc]init];
     backButton.frame = CGRectMake(0, 0, 50, 50);
     [backButton setTitle:@"返回" forState:UIControlStateNormal];
+    [backButton setTitleColor:[XZColor XZBlue_0_122_255] forState:UIControlStateNormal];
     backButton.titleLabel.font = TitleFont;
     
     UIBarButtonItem *myBarButton = [[UIBarButtonItem alloc]initWithCustomView:backButton];
     [self.navigationItem setLeftBarButtonItem:myBarButton];
     [backButton addTarget:self action:@selector(backOnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [backButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
 
-    
 }
 
 - (void)backOnClick:(UIButton *)sender {

@@ -78,6 +78,7 @@
 		24F933A91CF6F50B001DAE72 /* MyAccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F933A81CF6F50B001DAE72 /* MyAccountCell.m */; };
 		24F933AC1CF6FCCE001DAE72 /* MyCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F933AB1CF6FCCE001DAE72 /* MyCollectionVC.m */; };
 		24FB3C781CF573F100B0144D /* WXArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FB3C771CF573F100B0144D /* WXArticleCell.m */; };
+		531BDAF41D77E8620022B885 /* XZColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 531BDAF31D77E8620022B885 /* XZColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,6 +211,8 @@
 		24FB3C761CF573F100B0144D /* WXArticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXArticleCell.h; sourceTree = "<group>"; };
 		24FB3C771CF573F100B0144D /* WXArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXArticleCell.m; sourceTree = "<group>"; };
 		265FD4B11B37B1659CEF762A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		531BDAF21D77E8620022B885 /* XZColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZColor.h; sourceTree = "<group>"; };
+		531BDAF31D77E8620022B885 /* XZColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZColor.m; sourceTree = "<group>"; };
 		CC4B2A5D631D7B944E964DC0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -396,6 +399,8 @@
 				2433E18C1D76BBA8000F4F45 /* share */,
 				241F170B1CB66BFA00EADF63 /* UILabel+StringFrame.h */,
 				241F170C1CB66BFA00EADF63 /* UILabel+StringFrame.m */,
+				531BDAF21D77E8620022B885 /* XZColor.h */,
+				531BDAF31D77E8620022B885 /* XZColor.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -786,6 +791,7 @@
 				241F17091CB6656500EADF63 /* ContentTVCell.m in Sources */,
 				2489274D1CB7B14200638D68 /* WeiXinResponse.m in Sources */,
 				2468C45D1CB34CA2005A10BF /* AppDelegate.m in Sources */,
+				531BDAF41D77E8620022B885 /* XZColor.m in Sources */,
 				24F933A91CF6F50B001DAE72 /* MyAccountCell.m in Sources */,
 				24F933A61CF6F207001DAE72 /* MyAccountVC.m in Sources */,
 				2433E18F1D76BBEE000F4F45 /* ShareView.m in Sources */,
