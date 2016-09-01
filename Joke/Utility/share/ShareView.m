@@ -36,7 +36,7 @@
     }];
     panelView =[[UIView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, 80)];
     panelView.backgroundColor=[UIColor whiteColor];
-    panelView.layer.cornerRadius=5;
+    panelView.layer.cornerRadius=3;
     panelView.layer.masksToBounds=YES;
     [self addSubview:panelView];
 

@@ -8,7 +8,7 @@
 
 #import "MyCollectionVC.h"
 #import "ContentTVCell.h"
-
+#import "XZColor.h"
 @interface MyCollectionVC () <UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *myAccountTableV;
 @property (nonatomic, strong) NSMutableArray *dataArray;
@@ -21,16 +21,13 @@
     [super viewDidLoad];
     [self setNavigationButton];
     [self createTittleFont:@"我的收藏"];
-    
-    
-    
+
     NSMutableArray * collectA = [[NSUserDefaults standardUserDefaults] objectForKey:COLLECT_ARRAY_KEY];
     if (collectA) {
         self.dataArray = collectA;
     }
-    
-    self.myAccountTableV.backgroundColor = [UIColor lightGrayColor];
-    
+    self.myAccountTableV.backgroundColor = [XZColor backgroudColor];
+
 }
 
 - (NSMutableArray *)dataArray {
@@ -39,8 +36,6 @@
     }
     return _dataArray;
 }
-
-
 
 - (UITableView *)myAccountTableV {
     
@@ -56,8 +51,6 @@
     }
     return _myAccountTableV;
 }
-
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.dataArray count];
@@ -80,30 +73,14 @@
     cell.contentLabel.text = dataM;
     cell.collectButton.selected = YES;
     [cell.contentLabel spaceLabel:ContentFontSpace];
-    
-    //setImageWithURL:dataM.url];
-    //    cell.textLabel.text = @"q213134";
     return cell;
     
-    
 }
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

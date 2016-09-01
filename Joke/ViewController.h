@@ -10,7 +10,5 @@
 #import "JBaseVC.h"
 
 @interface ViewController : JBaseVC
-
-
 @end
 

@@ -9,38 +9,36 @@
 #import "ContentTVCell.h"
 #import <ShareSDK/ShareSDK.h>
 #import "ShareView.h"
-
+#import "XZColor.h"
 @implementation ContentTVCell
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
-
 -  (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        
+        self.contentView.backgroundColor = [XZColor backgroudColor];
+        
         _contentLabel = [[UILabel alloc]init];
-        [self.contentView addSubview:_contentLabel];
         _contentLabel.font = cwFont(contentFontSize);
         _contentLabel.numberOfLines = 0;
+        _contentLabel.textColor = [XZColor XZgrey85];
+        [self.contentView addSubview:_contentLabel];
         [_contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.contentView).with.insets(UIEdgeInsetsMake(5, 15, 45, 15));
         }];
         
         //收藏
         _collectButton = [[UIButton alloc]init];
-        [_collectButton addTarget:self action:@selector(collectContent:) forControlEvents:UIControlEventTouchUpInside];
+        _collectButton.titleLabel.font = TitleFont;
+        _collectButton.layer.cornerRadius = 3;
+        _collectButton.layer.borderColor = [UIColor orangeColor].CGColor;
+        _collectButton.layer.borderWidth = 1;
         [_collectButton setTitle:@"收藏" forState:UIControlStateNormal];
         [_collectButton setTitle:@"已收藏" forState:UIControlStateSelected];
-        
+        [_collectButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        [_collectButton addTarget:self action:@selector(collectContent:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:_collectButton];
         [_collectButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(self.contentView).offset(-25);
+            make.bottom.equalTo(self.contentView).offset(-15);
             make.right.equalTo(self.contentView).offset(-20);
             make.height.equalTo(@(28));
             make.width.equalTo(@(65));
@@ -48,33 +46,20 @@
         
         //uibutton分享
         UIButton * shareButton = [[UIButton alloc]init];
-        [shareButton addTarget:self action:@selector(shareImage:) forControlEvents:UIControlEventTouchUpInside];
         [shareButton setTitle:@"分享" forState:UIControlStateNormal];
+        shareButton.titleLabel.font = TitleFont;
+        shareButton.layer.cornerRadius = 3;
+        shareButton.layer.borderColor = [UIColor orangeColor].CGColor;
+        shareButton.layer.borderWidth = 1;
+        [shareButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        [shareButton addTarget:self action:@selector(shareImage:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:shareButton];
-
         [shareButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(self.contentView).offset(-25);
-            make.right.equalTo(_collectButton.mas_left).offset(-5);
+            make.bottom.equalTo(self.contentView).offset(-15);
+            make.right.equalTo(_collectButton.mas_left).offset(-8);
             make.width.equalTo(@(53));
             make.height.equalTo(@(28));
         }];
-
-        
-        shareButton.titleLabel.font = TitleFont;
-        shareButton.layer.cornerRadius = 5;
-        shareButton.layer.borderColor = [UIColor orangeColor].CGColor;
-        shareButton.layer.borderWidth = 1;
-        
-        _collectButton.titleLabel.font = TitleFont;
-        _collectButton.layer.cornerRadius = 5;
-        _collectButton.layer.borderColor = [UIColor orangeColor].CGColor;
-        _collectButton.layer.borderWidth = 1;
-
-        
-        [shareButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-        [_collectButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-        
-        
     }
     return self;
 }
@@ -86,7 +71,6 @@
     if (!collectA) {
         collectA = [NSMutableArray array];
     }
-    
     if (sender.selected) {//已收藏状态
         sender.selected = NO;
         if ([collectA containsObject:_contentLabel.text]) {
@@ -98,16 +82,13 @@
             [collectA addObject:_contentLabel.text];
         }
     }
-    
 //    if (![collectA containsObject:_contentLabel.text]) {
 //       [collectA addObject:_contentLabel.text];
 //    }
-    
     [[NSUserDefaults standardUserDefaults] setObject:collectA forKey:COLLECT_ARRAY_KEY];
 }
 
 - (void)shareImage:(UIButton *)sender {
-    
 //    
     ShareView * _shareView = [ShareView new];
     _shareView.url = @"http://www.xzzai.com";
@@ -117,18 +98,6 @@
     _shareView.content = @"搞笑~~~ ";
     [_shareView showInWindowAnimated:YES];
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 //    LOG(@"分享图片到好友");
     
 //    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"card"  ofType:@"png"];
@@ -165,7 +134,7 @@
     
     CGSize size = [self.contentLabel boundingRectWithSize:CGSizeMake((SCREEN_WIDTH - 30), 0)];
     //字体高度，字体行数 h总高度
-    CGFloat h = size.height + 80 + size.height/(contentFontSize + 6)*ContentFontSpace;
+    CGFloat h = size.height + 55 + size.height/(contentFontSize + 6)*ContentFontSpace;
     return h;
 }
 
@@ -197,8 +166,6 @@
     [shareLabel spaceLabel:ContentFontSpace];
     [viewBG addSubview:shareLabel];
     
- 
-    
     viewBG.backgroundColor = [UIColor lightGrayColor];
     shareLabel.backgroundColor = [UIColor clearColor];
     
@@ -208,11 +175,9 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    
     //将图片保存到相册中
 //    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
     return image;
 }
-
 
 @end

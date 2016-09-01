@@ -36,7 +36,6 @@
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [self.text length])];
     self.attributedText = attributedString;
     
-    
     /*
      
      NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];

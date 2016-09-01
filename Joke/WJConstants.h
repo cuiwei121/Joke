@@ -55,7 +55,7 @@
 /**
  *  搞笑文章的内容间距 字体大小
  */
-#define ContentFontSpace 10
+#define ContentFontSpace 5
 #define WXContentFontSpace 5
 #define contentFontSize 18
 
