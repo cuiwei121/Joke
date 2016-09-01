@@ -14,4 +14,6 @@
 +(void)sharePlatformType:(ShareType)type content:(NSString *)content image:(NSString *)image title:(NSString *)title url:(NSString *)url;
 
 +(void)shareformType:(ShareType)type content:(NSString *)content image:(UIImage *)image title:(NSString *)title url:(NSString *)url;
+
++(void)shareType:(ShareType)type content:(NSString *)content image:(UIImage *)image title:(NSString *)title url:(NSString *)url publishContentMediaType:(SSPublishContentMediaType)publishContentMediaType;
 @end

@@ -93,6 +93,7 @@
     ShareView * _shareView = [ShareView new];
     _shareView.url = @"http://www.xzzai.com";
     _shareView.title = @"太搞笑了";
+    _shareView.publishContentMediaType = SSPublishContentMediaTypeImage;
     
     _shareView.uiimage = [self getShareImage];
     _shareView.content = @"搞笑~~~ ";
@@ -153,7 +154,7 @@
     //文本的长度
     CGSize size = [self.contentLabel boundingRectWithSize:CGSizeMake((SCREEN_WIDTH - 30), 0)];
     //字体高度和间隔的高度 20字体的大小
-     CGFloat h = size.height + size.height/(20)*ContentFontSpace;
+     CGFloat h = size.height + size.height/(25)*10;
     if (h> SCREEN_HEIGHT - 40) {
         viewBG.frame = CGRectMake(0, 0, SCREEN_WIDTH, h + 40);
     }
@@ -163,7 +164,7 @@
     shareLabel.text =[NSString stringWithFormat:@"%@",_contentLabel.text];
     shareLabel.font = TitleFont;// cwFont(contentFontSize);
     shareLabel.numberOfLines = 0;
-    [shareLabel spaceLabel:ContentFontSpace];
+    [shareLabel spaceLabel:10];
     [viewBG addSubview:shareLabel];
     
     viewBG.backgroundColor = [UIColor lightGrayColor];

@@ -7,6 +7,8 @@
 //
 
 #import "WXArticleVC.h"
+#import "XZColor.h"
+#import "ShareView.h"
 
 @interface WXArticleVC ()<UIWebViewDelegate>
 @property (nonatomic, strong) UIWebView *contentWebView;
@@ -14,9 +16,14 @@
 @end
 
 @implementation WXArticleVC
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self createShareButton];
     [self setNavigationButton];
     [self createTittleFont:@"文章"];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -50,6 +57,32 @@
   [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     
 }
+
+- (void)createShareButton {
+    //添加我的按钮
+    UIButton * myButton = [[UIButton alloc]init];
+    myButton.frame = CGRectMake(0, 0, 40, 40);
+    [myButton setTitle:@"分享" forState:UIControlStateNormal];
+    [myButton setTitleColor:[XZColor XZBlue_0_122_255] forState:UIControlStateNormal];
+    myButton.titleLabel.font = TitleFont;
+    UIBarButtonItem *myBarButton = [[UIBarButtonItem alloc]initWithCustomView:myButton];
+    [self.navigationItem setRightBarButtonItem:myBarButton];
+    [myButton addTarget:self action:@selector(myAccountClick:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)myAccountClick:(UIButton *)sender {
+    
+    //
+    ShareView * _shareView = [ShareView new];
+    _shareView.url = self.urlArticle;
+    _shareView.title = @"精品文章";
+    _shareView.publishContentMediaType = SSPublishContentMediaTypeNews;
+    
+    _shareView.uiimage = [UIImage imageNamed:@"fenxiang_QQ"];//[self getShareImage];
+    _shareView.content = _titleArticle;
+    [_shareView showInWindowAnimated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

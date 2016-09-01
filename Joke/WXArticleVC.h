@@ -10,5 +10,6 @@
 
 @interface WXArticleVC : JBaseVC
 @property (nonatomic, strong) NSString *urlArticle;
+@property (nonatomic, strong) NSString *titleArticle;
 
 @end

@@ -6,6 +6,7 @@
 //  Copyright © 2015年 Gozap. All rights reserved.
 
 #import <UIKit/UIKit.h>
+#import <ShareSDK/ShareSDK.h>
 @class ShareTypeLabelBtn;
 @interface ShareView : UIView
 @property(nonatomic,strong)NSString * content;
@@ -14,6 +15,8 @@
 @property(nonatomic,strong)NSString * title;
 @property(nonatomic,strong)NSString * url;
 @property(nonatomic,strong)NSString * descriptions;
+@property(nonatomic, assign)SSPublishContentMediaType publishContentMediaType;
+
 -(void)showInWindowAnimated:(BOOL)animated;
 @end
 

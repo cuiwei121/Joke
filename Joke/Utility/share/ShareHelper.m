@@ -115,4 +115,57 @@
     
 }
 
+
++(void)shareType:(ShareType)type content:(NSString *)content image:(UIImage *)image title:(NSString *)title url:(NSString *)url publishContentMediaType:(SSPublishContentMediaType)publishContentMediaType {
+
+    if (type == ShareTypeSMS) {
+        image = nil;
+    }
+    id<ISSContent> publishContent;
+    if (type == ShareTypeWeixiTimeline ) {
+        publishContent = [ShareSDK content:content
+                            defaultContent:content
+                                     image:[ShareSDK pngImageWithImage:image]
+                                     title:title
+                                       url:url
+                               description:content
+                                 mediaType:publishContentMediaType];
+    }else if (type == ShareTypeWeixiSession || type == ShareTypeSinaWeibo||type ==ShareTypeWeixiFav|| type==ShareTypeQQSpace){
+        publishContent = [ShareSDK content:[NSString stringWithFormat:@"%@%@",title,url]
+                            defaultContent:content
+                                     image:[ShareSDK pngImageWithImage:image]
+                                     title:@"一本正精"
+                                       url:url
+                               description:content
+                                 mediaType:publishContentMediaType];
+    }else{
+        publishContent = [ShareSDK content:content
+                            defaultContent:@"一本正精"
+                                     image:[ShareSDK pngImageWithImage:image]
+                                     title:@"搞笑是一本正经的！"
+                                       url:url
+                               description:content
+                                 mediaType:publishContentMediaType];
+    }
+    [ShareSDK clientShareContent:publishContent //内容对象
+                            type:type //平台类型
+                   statusBarTips:YES
+                          result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {//返回事件
+                              
+                              if (state == SSPublishContentStateSuccess)
+                              {
+                                  LOG(NSLocalizedString(@"TEXT_SHARE_SUC", @"分享成功!"));
+                                  
+                              }
+                              else if (state == SSPublishContentStateFail)
+                              {
+                                  LOG(NSLocalizedString(@"TEXT_ShARE_FAI", @"分享失败,错误码:%d,错误描述:%@"), [error errorCode], [error errorDescription]);
+                                  
+                              }
+                          }];
+    
+}
+
+
+
 @end

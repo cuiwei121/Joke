@@ -210,6 +210,7 @@
         
         WXArticleVC * wxVC = [[WXArticleVC alloc]init];
         wxVC.urlArticle = dataM.url;
+        wxVC.titleArticle = dataM.title;
         
         [self.navigationController pushViewController:wxVC animated:YES];
     }
