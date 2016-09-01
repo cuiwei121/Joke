@@ -42,7 +42,7 @@
         [shareButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.contentView).offset(-25);
             make.right.equalTo(self.contentView).offset(-85);
-            make.width.height.equalTo(@(50));
+            make.width.equalTo(@(50));
             make.height.equalTo(@(30));
         }];
         //收藏
