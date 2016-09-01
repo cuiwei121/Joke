@@ -64,7 +64,7 @@
 }
 
 
-+(void)shareformType:(ShareType)type content:(NSString *)content image:(UIImage *)image title:(NSString *)title url:(NSString *)url compeletion:(void(^)(BOOL success))block{
++(void)shareformType:(ShareType)type content:(NSString *)content image:(UIImage *)image title:(NSString *)title url:(NSString *)url{
     
     //SSPublishContentMediaTypeImage
     if (type == ShareTypeSMS) {
@@ -91,7 +91,7 @@
         publishContent = [ShareSDK content:content
                             defaultContent:@"龙贷"
                                      image:[ShareSDK pngImageWithImage:image]
-                                     title:@"龙贷分享"
+                                     title:@"搞笑是一本正经的！"
                                        url:url
                                description:content
                                  mediaType:SSPublishContentMediaTypeImage];
@@ -104,12 +104,12 @@
                               if (state == SSPublishContentStateSuccess)
                               {
                                   LOG(NSLocalizedString(@"TEXT_SHARE_SUC", @"分享成功!"));
-                                  block(YES);
+                               
                               }
                               else if (state == SSPublishContentStateFail)
                               {
                                   LOG(NSLocalizedString(@"TEXT_ShARE_FAI", @"分享失败,错误码:%d,错误描述:%@"), [error errorCode], [error errorDescription]);
-                                  block(NO);
+                            
                               }
                           }];
     

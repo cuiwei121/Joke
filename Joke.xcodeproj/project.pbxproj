@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D7A396614D7C730568A44C8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 265FD4B11B37B1659CEF762A /* libPods.a */; };
+		240BCE731D77C04E001C5595 /* bottomArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 240BCE721D77C04E001C5595 /* bottomArrow.png */; };
 		24123FCB1D07F65000E96B55 /* CopyConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24123F9D1D07F65000E96B55 /* CopyConnection.framework */; };
 		24123FCC1D07F65000E96B55 /* MailConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24123F9E1D07F65000E96B55 /* MailConnection.framework */; };
 		24123FCD1D07F65000E96B55 /* QQConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24123F9F1D07F65000E96B55 /* QQConnection.framework */; };
@@ -97,6 +98,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		240BCE721D77C04E001C5595 /* bottomArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottomArrow.png; sourceTree = "<group>"; };
 		24123F9D1D07F65000E96B55 /* CopyConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CopyConnection.framework; sourceTree = "<group>"; };
 		24123F9E1D07F65000E96B55 /* MailConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MailConnection.framework; sourceTree = "<group>"; };
 		24123F9F1D07F65000E96B55 /* QQConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QQConnection.framework; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 		2433E17C1D76BAAF000F4F45 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				240BCE721D77C04E001C5595 /* bottomArrow.png */,
 				2433E1931D76E15C000F4F45 /* fenxiang_shoucang@2x.png */,
 				2433E1801D76BB7F000F4F45 /* fenxiang_pengyouquan@2x.png */,
 				2433E1811D76BB7F000F4F45 /* fenxiang_pengyouquan@3x.png */,
@@ -692,6 +695,7 @@
 				2468C4631CB34CA2005A10BF /* Main.storyboard in Resources */,
 				2433E1871D76BB7F000F4F45 /* fenxiang_pengyouquan@3x.png in Resources */,
 				24123FD81D07F65000E96B55 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				240BCE731D77C04E001C5595 /* bottomArrow.png in Resources */,
 				24123FDA1D07F65000E96B55 /* WeiboSDK.bundle in Resources */,
 				2433E18A1D76BB7F000F4F45 /* fenxiang_weixin@2x.png in Resources */,
 				2433E1751D767992000F4F45 /* HYWaWaZhuanJ.ttf in Resources */,

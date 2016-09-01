@@ -181,14 +181,7 @@
 }
 -(void)share:(ShareType)type{
 //    [ShareHelper sharePlatformType:type content:_content image:_image title:_title url:_url];
-    [ShareHelper shareformType:type content:_content image:_uiimage title:_title url:_url compeletion:^(BOOL success) {
-        [self RemoveFromWindowAnimated:YES];
-        if (success) {
-            LOG(@"成功分享");
-        }else {
-            LOG(@"分享失败");
-        }
-    }];
+    [ShareHelper shareformType:type content:_content image:_uiimage title:_title url:_url];
     [self RemoveFromWindowAnimated:YES];
 }
 

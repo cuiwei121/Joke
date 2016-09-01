@@ -44,7 +44,7 @@
     _arrowImageV = [[UIImageView alloc]init];
     _arrowImageV.frame = CGRectMake(SCREEN_WIDTH - 35, 15, 20, 20);
     [self.contentView addSubview:_arrowImageV];
-    _arrowImageV.image = [UIImage imageNamed:@"h_star_se"];
+    _arrowImageV.image = [UIImage imageNamed:@"bottomArrow"];
     
     _lineView = [[UIView alloc]init];
     _lineView.backgroundColor = [UIColor lightGrayColor];
