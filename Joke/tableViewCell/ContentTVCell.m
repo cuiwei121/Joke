@@ -32,6 +32,19 @@
             make.edges.equalTo(self.contentView).with.insets(UIEdgeInsetsMake(5, 15, 45, 15));
         }];
         
+        //收藏
+        _collectButton = [[UIButton alloc]init];
+        [_collectButton addTarget:self action:@selector(collectContent:) forControlEvents:UIControlEventTouchUpInside];
+        [_collectButton setTitle:@"收藏" forState:UIControlStateNormal];
+        [_collectButton setTitle:@"已收藏" forState:UIControlStateSelected];
+        
+        [self.contentView addSubview:_collectButton];
+        [_collectButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self.contentView).offset(-25);
+            make.right.equalTo(self.contentView).offset(-20);
+            make.height.equalTo(@(28));
+            make.width.equalTo(@(65));
+        }];
         
         //uibutton分享
         UIButton * shareButton = [[UIButton alloc]init];
@@ -41,25 +54,12 @@
 
         [shareButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.contentView).offset(-25);
-            make.right.equalTo(self.contentView).offset(-85);
-            make.width.equalTo(@(50));
-            make.height.equalTo(@(30));
+            make.right.equalTo(_collectButton.mas_left).offset(-5);
+            make.width.equalTo(@(53));
+            make.height.equalTo(@(28));
         }];
-        //收藏
-        _collectButton = [[UIButton alloc]init];
-        [_collectButton addTarget:self action:@selector(collectContent:) forControlEvents:UIControlEventTouchUpInside];
-        [_collectButton setTitle:@"收藏" forState:UIControlStateNormal];
-        [_collectButton setTitle:@"已收藏" forState:UIControlStateSelected];
- 
-        [self.contentView addSubview:_collectButton];
-        [_collectButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(self.contentView).offset(-25);
-            make.right.equalTo(self.contentView).offset(-20);
-            make.height.equalTo(@(30));
-            make.width.equalTo(@(60));
-        }];
+
         
- 
         shareButton.titleLabel.font = TitleFont;
         shareButton.layer.cornerRadius = 5;
         shareButton.layer.borderColor = [UIColor orangeColor].CGColor;
