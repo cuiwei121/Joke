@@ -98,36 +98,6 @@
     _shareView.uiimage = [self getShareImage];
     _shareView.content = @"搞笑~~~ ";
     [_shareView showInWindowAnimated:YES];
-
-//    LOG(@"分享图片到好友");
-    
-//    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"card"  ofType:@"png"];
-    //构造分享内容
-//    id<ISSContent> publishContent = [ShareSDK content:@"搞笑~~~"
-//                                       defaultContent:@"默认分享内容测试，没内容时显示"
-//                                                image:[ShareSDK pngImageWithImage:[self getShareImage]]
-//                                                title:@"太搞笑了"
-//                                                  url:@"http://www.xzzai.com"
-//                                          description:@"笑话都在这里哦！"
-//                                            mediaType:SSPublishContentMediaTypeImage];
-//    [ShareSDK showShareActionSheet:nil
-//                         shareList:nil
-//                           content:publishContent
-//                     statusBarTips:YES
-//                       authOptions:nil
-//                      shareOptions: nil
-//                            result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
-//                                if (state == SSResponseStateSuccess)
-//                                {
-//                                    NSLog(@"分享成功");
-//                                }
-//                                else if (state == SSResponseStateFail)
-//                                {
-//                                    NSLog(@"分享失败 错误吗：= %d ，错误信息描述 = %@",[error errorCode],[error errorDescription]);
-//                                }
-//                            }];
-//    
-//    [self getShareImage];
 }
 
 
@@ -167,7 +137,7 @@
     [shareLabel spaceLabel:10];
     [viewBG addSubview:shareLabel];
     
-    viewBG.backgroundColor = [UIColor lightGrayColor];
+    viewBG.backgroundColor = [XZColor backgroudColor];
     shareLabel.backgroundColor = [UIColor clearColor];
     
     //截图 viewBG截取的图片的大小
