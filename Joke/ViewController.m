@@ -211,6 +211,7 @@
         WXArticleVC * wxVC = [[WXArticleVC alloc]init];
         wxVC.urlArticle = dataM.url;
         wxVC.titleArticle = dataM.title;
+        wxVC.urlImage = dataM.firstImg;
         
         [self.navigationController pushViewController:wxVC animated:YES];
     }

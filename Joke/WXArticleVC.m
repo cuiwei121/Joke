@@ -27,6 +27,8 @@
     [self setNavigationButton];
     [self createTittleFont:@"文章"];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+        self.edgesForExtendedLayout = UIRectEdgeNone;
     
     // Do any additional setup after loading the view.
     
@@ -34,7 +36,7 @@
 //    NSString *urlStr = [URL_PREFIX stringByAppendingString:dest];
 //    self.urlArticle = urlStr;
     
-    self.contentWebView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT - 64)];
+    self.contentWebView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     [self.view addSubview:self.contentWebView];
     self.contentWebView.delegate = self;
     
@@ -75,10 +77,10 @@
     //
     ShareView * _shareView = [ShareView new];
     _shareView.url = self.urlArticle;
-    _shareView.title = @"精品文章";
+    _shareView.title = _titleArticle;// @"精品文章";
     _shareView.publishContentMediaType = SSPublishContentMediaTypeNews;
     
-    _shareView.uiimage = [UIImage imageNamed:@"fenxiang_QQ"];//[self getShareImage];
+    _shareView.image = _urlImage;
     _shareView.content = _titleArticle;
     [_shareView showInWindowAnimated:YES];
 }

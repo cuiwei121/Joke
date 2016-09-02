@@ -116,7 +116,7 @@
 }
 
 
-+(void)shareType:(ShareType)type content:(NSString *)content image:(UIImage *)image title:(NSString *)title url:(NSString *)url publishContentMediaType:(SSPublishContentMediaType)publishContentMediaType {
++(void)shareType:(ShareType)type content:(NSString *)content image:(NSString *)image title:(NSString *)title url:(NSString *)url publishContentMediaType:(SSPublishContentMediaType)publishContentMediaType {
 
     if (type == ShareTypeSMS) {
         image = nil;
@@ -125,7 +125,7 @@
     if (type == ShareTypeWeixiTimeline ) {
         publishContent = [ShareSDK content:content
                             defaultContent:content
-                                     image:[ShareSDK pngImageWithImage:image]
+                                     image:[ShareSDK imageWithUrl:image]
                                      title:title
                                        url:url
                                description:content
@@ -133,7 +133,7 @@
     }else if (type == ShareTypeWeixiSession || type == ShareTypeSinaWeibo||type ==ShareTypeWeixiFav|| type==ShareTypeQQSpace){
         publishContent = [ShareSDK content:[NSString stringWithFormat:@"%@%@",title,url]
                             defaultContent:content
-                                     image:[ShareSDK pngImageWithImage:image]
+                                     image:[ShareSDK imageWithUrl:image]
                                      title:@"一本正精"
                                        url:url
                                description:content
@@ -141,7 +141,7 @@
     }else{
         publishContent = [ShareSDK content:content
                             defaultContent:@"一本正精"
-                                     image:[ShareSDK pngImageWithImage:image]
+                                     image:[ShareSDK imageWithUrl:image]
                                      title:@"搞笑是一本正经的！"
                                        url:url
                                description:content

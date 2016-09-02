@@ -182,8 +182,14 @@
 -(void)share:(ShareType)type{
 //    [ShareHelper sharePlatformType:type content:_content image:_image title:_title url:_url];
 //    [ShareHelper shareformType:type content:_content image:_uiimage title:_title url:_url];
-//    [self RemoveFromWindowAnimated:YES];
-    [ShareHelper shareType:type content:_content image:_uiimage title:_title url:_url publishContentMediaType:_publishContentMediaType];
+    //    [self RemoveFromWindowAnimated:YES];
+    if (_uiimage) {
+        [ShareHelper shareformType:type content:_content image:_uiimage title:_title url:_url];
+        
+    }else {
+        [ShareHelper shareType:type content:_content image:_image title:_title url:_url publishContentMediaType:_publishContentMediaType];
+    }
+    
     [self RemoveFromWindowAnimated:YES];
     
 }
