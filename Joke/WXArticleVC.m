@@ -27,8 +27,6 @@
     [self setNavigationButton];
     [self createTittleFont:@"文章"];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
-        self.edgesForExtendedLayout = UIRectEdgeNone;
     
     // Do any additional setup after loading the view.
     

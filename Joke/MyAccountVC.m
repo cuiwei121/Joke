@@ -93,6 +93,8 @@
         LOG(@"跳转到我的收藏界面中");
         MyCollectionVC *myCollection = [[MyCollectionVC alloc]init];
         [self.navigationController pushViewController:myCollection animated:YES];
+    }else if(indexPath.row == 1) {
+//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id1018221712"]];
     }
 }
 
