@@ -21,7 +21,7 @@
     self.view.backgroundColor = [XZColor backgroudColor];
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;
-    [self createMessage];
+//    [self createMessage];
     
 //    self.bannerView = [[GADBannerView alloc]init];
 ////    self.bannerView.backgroundColor = [UIColor greenColor];
